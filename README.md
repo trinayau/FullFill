@@ -28,7 +28,7 @@ A fullstack project that aims to serve those facing food poverty by providing a 
 
 ## Technologies
 - Frontend: React
-- Backend: Django
+- Backend: Django using django-rest-framework
 - API: Give Food API
 - Database: Django SQLite
 
