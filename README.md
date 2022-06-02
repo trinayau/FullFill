@@ -21,7 +21,7 @@ A fullstack project that aims to serve those facing food poverty by providing a 
 - Realtime chatroom in community page
 - Events/blog post section -> Admin get to post
 
-## Could-haves/Stretch Goals:
+### Could-haves/Stretch Goals:
 - Individual user profiles -> what community you are part of
 - Add profile photo
 - Mailers -> sign up for newsletter for this week's volunteering opportunities
@@ -31,3 +31,17 @@ A fullstack project that aims to serve those facing food poverty by providing a 
 - Backend: Django
 - API: Give Food API
 - Database: Django SQLite
+
+## Installation and Usage
+Clone or fork this repo
+Client:
+1. Run `cd client/blogapi` in terminal to enter React client directory
+2. Run `npm install` to install all dependencies
+3. Run `npm start` to start the server
+
+Server:
+1. Run `cd server` in terminal to enter Django server directory
+2. Run `python manage.py runserver` to start the server
+
+
+

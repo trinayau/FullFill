@@ -1,0 +1,19 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+django = "*"
+djangorestframework = "*"
+coverage = "*"
+pytest = "*"
+
+[dev-packages]
+
+[scripts]
+test = "pytest ."
+coverage = "pytest --cov-report term-missing --cov=."
+
+[requires]
+python_version = "3.10"
