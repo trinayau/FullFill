@@ -41,7 +41,9 @@ Client:
 
 Server:
 1. Run `cd server` in terminal to enter Django server directory
-2. Run `python manage.py runserver` to start the server
+2. Run `pipenv shell` to enter virtual enviroment
+3. Run `pipenv install` to install all dependencies
+4. Run `python manage.py runserver` to start the server
 
 
 
