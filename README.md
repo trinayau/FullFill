@@ -1,9 +1,22 @@
-# Gebru Team 2 - Lap 4 Final Project
-## Title
+# Gebru Team 2 - Lap 4 Futureproof Final Project
 Project FullFill
 
 ## Description
 A fullstack project that aims to serve those facing food poverty by providing a one-stop-shop for both corporate and public volunteers to organise food donations and outreach, as well as for those in need to find local food banks.
+
+## Installation and Usage
+Clone or fork this repo
+Client:
+1. Run `cd client/blogapi` in terminal to enter React client directory
+2. Run `npm install` to install all dependencies
+3. Run `npm start` to start the server
+
+Server:
+1. Run `cd server` in terminal to enter Django server directory
+2. Run `pipenv shell` to enter virtual enviroment
+3. Run `pipenv install` to install all dependencies
+4. Run `python manage.py runserver` to start the server
+
 
 ## Product (USP)
 - Not just providing a platform to find food banks, but also to allow people to organise themselves into grassroots volunteering groups to serve their local community.
@@ -32,18 +45,6 @@ A fullstack project that aims to serve those facing food poverty by providing a 
 - API: Give Food API
 - Database: Django SQLite
 
-## Installation and Usage
-Clone or fork this repo
-Client:
-1. Run `cd client/blogapi` in terminal to enter React client directory
-2. Run `npm install` to install all dependencies
-3. Run `npm start` to start the server
-
-Server:
-1. Run `cd server` in terminal to enter Django server directory
-2. Run `pipenv shell` to enter virtual enviroment
-3. Run `pipenv install` to install all dependencies
-4. Run `python manage.py runserver` to start the server
 
 
 
