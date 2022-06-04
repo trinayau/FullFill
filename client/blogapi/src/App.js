@@ -1,32 +1,29 @@
-import {Button, styled, Typography} from "@mui/material"
-import {SettingsIcon, Add} from '@mui/icons-material';
-function App() {
-
-  const BlueButton = styled(Button)({
-    backgroundColor: 'skyblue',
-    color: 'white',
-    fontWeight: 'bold',
-    padding: '1rem',
-    margin: '1rem',
-    borderRadius: '5px',
-    boxShadow: '0px 0px 5px 0px rgba(0,0,0,0.75)',
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import {Posts} from './components/';
+import PostLoadingComponent from './components/PostLoading';
+const App = () => {
+  const PostLoading = PostLoadingComponent(Posts);
+  const [appState, setAppState] = useState ({
+    loading: false,
+    posts: null
   });
+
+  useEffect(() => {
+    setAppState({loading: true});
+    const apiUrl = `http://localhost:8000/api/`;
+    fetch(apiUrl)
+      .then(response => response.json())
+      .then(posts => {
+        console.log(posts)
+        setAppState({loading: false, posts: posts});
+      });
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-       <Button startIcon={<Add />}variant="contained" color="success" size="small">Text</Button>
-       <Typography variant="h1" component="h2">
-          Hello World!
-         </Typography>
-         <Button variant="contained" sx={{
-           backgroundColor: 'skyblue',
-           margin:5,
-           "&:hover": {
-              backgroundColor: 'lightblue',
-           }
-         }}>My unique button</Button>
-          <BlueButton variant="contained" color="primary" size="small">YOYOYO</BlueButton>
-      </header>
+      <h1>Latest Posts</h1>
+      <PostLoading isLoading={appState.loading}  posts={appState.posts}/>
     </div>
   );
 }
