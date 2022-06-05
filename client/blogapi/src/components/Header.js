@@ -11,9 +11,10 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+
 import logo from './logo.png'
-import { styled } from '@mui/material';
 import { useState } from 'react';
+import {useNavigate, NavLink } from 'react-router-dom';
 
 const pages = ['Home', 'Locator', 'Donation', 'Community'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -22,6 +23,8 @@ function Header() {
 
       const [anchorElNav, setAnchorElNav] = useState(null);
       const [anchorElUser, setAnchorElUser] = useState(null);
+
+      const navigate = useNavigate();
     
       const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -37,11 +40,19 @@ function Header() {
       const handleCloseUserMenu = () => {
         setAnchorElUser(null);
       };
+
+      const handleLink=(link)=>{
+        handleCloseNavMenu();
+        handleCloseUserMenu();
+        navigate(link);
+      }
     
       return (
         <AppBar position="static" sx={{backgroundColor: "pink"}}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
+
+            {/* only displays if above medium breakpoint */}
 			<Box component="img" sx={{display: { xs: 'none', md: 'flex' }, mr: 1 }} src={logo}/>
               <Typography
                 variant="h6"
@@ -97,6 +108,7 @@ function Header() {
                   ))}
                 </Menu>
               </Box>
+              {/* Only displays for mobile */}
               <Box src={logo} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
               <Typography
                 variant="h5"
@@ -126,6 +138,14 @@ function Header() {
                     {page}
                   </Button>
                 ))}
+                <nav>
+                <Button
+                onClick={e => {handleLink('/register')}}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+						>
+							Register
+						</Button>
+					</nav>
               </Box>
     
               <Box sx={{ flexGrow: 0 }}>
