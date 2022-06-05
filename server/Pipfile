@@ -9,6 +9,8 @@ djangorestframework = "*"
 coverage = "*"
 pytest = "*"
 django-cors-headers = "*"
+djangorestframework-jwt = "*"
+djangorestframework-simplejwt = "*"
 
 [dev-packages]
 

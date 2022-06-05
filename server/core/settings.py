@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'blog',
     'blog_api',
     'rest_framework',
-    'corsheaders'
+    'corsheaders',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -133,7 +134,10 @@ STATIC_URL = '/static/'
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.AllowAny',
-    ]
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    )
 }
 
 CORS_ALLOWED_ORIGINS =[
@@ -141,3 +145,6 @@ CORS_ALLOWED_ORIGINS =[
     "http://localhost:3000",
     "http://192.168.1.215:3000",
 ]
+
+#Custom user model
+AUTH_USER_MODEL =  "users.NewUser"
