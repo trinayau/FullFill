@@ -86,4 +86,6 @@ axiosInstance.interceptors.response.use(
 		return Promise.reject(error);
 	}
 );
+
+// axiosInstance.get('/api/user/whoami'),
 export default axiosInstance;
