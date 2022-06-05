@@ -16,7 +16,7 @@ import logo from './logo.png'
 import { useState } from 'react';
 import {useNavigate, NavLink } from 'react-router-dom';
 
-const pages = ['Home', 'Locator', 'Donation', 'Community'];
+const pages = ['Locator', 'Donation', 'Community'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
@@ -48,7 +48,7 @@ function Header() {
       }
     
       return (
-        <AppBar position="static" sx={{backgroundColor: "pink"}}>
+        <AppBar elevation={0} position="static" sx={{backgroundColor: "white"}}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
 
@@ -62,9 +62,10 @@ function Header() {
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Pacifico',
                   fontWeight: 700,
-                  letterSpacing: '.3rem',
+                  letterSpacing: '.1rem',
+                  fontSize: '1 rem',
                   color: 'black',
                   textDecoration: 'none',
                 }}
@@ -128,7 +129,14 @@ function Header() {
               >
                 FullFill
               </Typography>
+              
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Button
+                onClick={e => {handleLink('/')}}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+						>
+							Home
+						</Button>
                 {pages.map((page) => (
                   <Button
                     key={page}
@@ -151,7 +159,7 @@ function Header() {
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt="User" src="/static/images/avatar/2.jpg" />
                   </IconButton>
                 </Tooltip>
                 <Menu

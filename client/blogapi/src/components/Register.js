@@ -3,7 +3,7 @@ import axiosInstance from '../axios';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Link, TextField, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import logo from './logo.png'
 //MaterialUI
 
 const theme = createTheme();
@@ -57,11 +57,11 @@ const Register = () => {
             alignItems: 'center',
           }}
         >
-        <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
-            <LockOutlinedIcon />
+        <Avatar sx={{ p:4, m: 1, bgcolor: 'pink' }}>
+            <img src={logo} alt="logo" />
           </Avatar>
         <Typography component="h1" variant="h5">
-            Sign up
+            Sign up to FullFill
         </Typography>
         <Box component="form" noValidate onSubmit={handleSubmit} sx={{ mt: 3 }}>
             <Grid container spacing={2}>
@@ -113,15 +113,15 @@ const Register = () => {
                 type="submit"
                 fullWidth
                 variant="contained"
-                color="primary"
+                color="secondary"
                 onClick={handleSubmit}
-                sx={{ mt: 3, mb: 2 }}
+                sx={{ mt: 3, mb: 2, backgroundColor: 'pink' }}
             >
                 Sign Up
             </Button>
             <Grid container justify="flex-end">
                 <Grid item>
-                    <Link href="#" variant="body2">
+                    <Link href="/login" variant="body2" sx={{color: 'black'}}>
                         Already have an account? Sign in
                     </Link>
                 </Grid>
