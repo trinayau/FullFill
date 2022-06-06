@@ -146,11 +146,7 @@ REST_FRAMEWORK = {
     )
 }
 
-CORS_ALLOWED_ORIGINS =[
-    "http://127.0.0.1:3000",
-    "http://localhost:3000",
-    "http://192.168.1.215:3000",
-]
+CORS_ALLOW_ALL_ORIGINS = True
 
 #Custom user model
 AUTH_USER_MODEL =  "users.NewUser"
@@ -160,8 +156,8 @@ AUTH_USER_MODEL =  "users.NewUser"
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
+    'ROTATE_REFRESH_TOKENS': True,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
 

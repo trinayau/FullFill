@@ -22,4 +22,9 @@ class CommunityPostAdmin(admin.ModelAdmin):
     
     list_display = ("id", 'title')
 
-admin.site.register(models.Membership)
+@admin.register(models.Membership)
+class MembershipAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        obj.user_id = request.user
+        super(MembershipAdmin, self).save_model(request, obj, form, change)
+    list_display = ("id", "user_id", "community_id", "member_role")
