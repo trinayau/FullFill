@@ -1,29 +1,26 @@
-import React, { useEffect, useState } from 'react';
+import { ThemeProvider } from '@mui/material';
+import React from 'react';
 import './App.css';
-import {Posts} from './components/';
-import PostLoadingComponent from './components/PostLoading';
+import {theme} from './theme';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Footer, Header, Homepage, Login, Logout, Register } from './components';
 const App = () => {
-  const PostLoading = PostLoadingComponent(Posts);
-  const [appState, setAppState] = useState ({
-    loading: false,
-    posts: null
-  });
 
-  useEffect(() => {
-    setAppState({loading: true});
-    const apiUrl = `http://localhost:8000/api/`;
-    fetch(apiUrl)
-      .then(response => response.json())
-      .then(posts => {
-        console.log(posts)
-        setAppState({loading: false, posts: posts});
-      });
-  }, []);
 
   return (
     <div className="App">
-      <h1>Latest Posts</h1>
-      <PostLoading isLoading={appState.loading}  posts={appState.posts}/>
+       <ThemeProvider theme={theme}>
+    <Router>
+    <Header/>
+    <Routes>
+      <Route path="/" element={<Homepage />} />
+      <Route path="/register" element={<Register />}/>
+      <Route path="/login" element={<Login/>}/>
+      <Route path="/logout" element={<Logout />}/>
+    </Routes>
+    <Footer/>
+    </Router>
+      </ThemeProvider>
     </div>
   );
 }

@@ -11,17 +11,20 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import logo from './logo.png'
-import { styled } from '@mui/material';
-import { useState } from 'react';
 
-const pages = ['Home', 'Locator', 'Donation', 'Community'];
+import logo from './logo.png'
+import { useState } from 'react';
+import {useNavigate, NavLink } from 'react-router-dom';
+
+const pages = ['Locator', 'Donation', 'Community'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Header() {
 
       const [anchorElNav, setAnchorElNav] = useState(null);
       const [anchorElUser, setAnchorElUser] = useState(null);
+
+      const navigate = useNavigate();
     
       const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
@@ -37,11 +40,19 @@ function Header() {
       const handleCloseUserMenu = () => {
         setAnchorElUser(null);
       };
+
+      const handleLink=(link)=>{
+        handleCloseNavMenu();
+        handleCloseUserMenu();
+        navigate(link);
+      }
     
       return (
-        <AppBar position="static" sx={{backgroundColor: "pink"}}>
+        <AppBar elevation={0} position="static" sx={{backgroundColor: "white"}}>
           <Container maxWidth="xl">
             <Toolbar disableGutters>
+
+            {/* only displays if above medium breakpoint */}
 			<Box component="img" sx={{display: { xs: 'none', md: 'flex' }, mr: 1 }} src={logo}/>
               <Typography
                 variant="h6"
@@ -51,9 +62,10 @@ function Header() {
                 sx={{
                   mr: 2,
                   display: { xs: 'none', md: 'flex' },
-                  fontFamily: 'Roboto',
+                  fontFamily: 'Pacifico',
                   fontWeight: 700,
-                  letterSpacing: '.3rem',
+                  letterSpacing: '.1rem',
+                  fontSize: '1 rem',
                   color: 'black',
                   textDecoration: 'none',
                 }}
@@ -97,6 +109,7 @@ function Header() {
                   ))}
                 </Menu>
               </Box>
+              {/* Only displays for mobile */}
               <Box src={logo} sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
               <Typography
                 variant="h5"
@@ -116,7 +129,14 @@ function Header() {
               >
                 FullFill
               </Typography>
+              
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+              <Button
+                onClick={e => {handleLink('/')}}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+						>
+							Home
+						</Button>
                 {pages.map((page) => (
                   <Button
                     key={page}
@@ -126,12 +146,20 @@ function Header() {
                     {page}
                   </Button>
                 ))}
+                <nav>
+                <Button
+                onClick={e => {handleLink('/register')}}
+                sx={{ my: 2, color: 'black', display: 'block' }}
+						>
+							Register
+						</Button>
+					</nav>
               </Box>
     
               <Box sx={{ flexGrow: 0 }}>
                 <Tooltip title="Open settings">
                   <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                    <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                    <Avatar alt="User" src="/static/images/avatar/2.jpg" />
                   </IconButton>
                 </Tooltip>
                 <Menu
