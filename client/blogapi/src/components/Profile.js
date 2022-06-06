@@ -1,6 +1,6 @@
 import React, {useContext} from 'react'
 import AuthContext from "../context/AuthContext";
-
+// list user's joined communities and set it in state, link to each community
 const Profile = () => {
     let {user} = useContext(AuthContext)
   return (

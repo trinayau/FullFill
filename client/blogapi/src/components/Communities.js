@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import axios from 'axios'
-
+import AuthContext from "../context/AuthContext";
  const Communities = () => {
 
     const [communities, setCommunities] = useState(null)
@@ -8,6 +8,8 @@ import axios from 'axios'
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [location, setLocation] = useState('')
+
+    const {user} = useContext(AuthContext)
 
     useEffect(() => {
         async function fetchData() {
@@ -50,7 +52,7 @@ import axios from 'axios'
                     <h1>{c.title}</h1>
                     <h2>{c.description}</h2>
                     <h3>{c.location}</h3>
-                    <a href={`/communities/`+ c.id}><button>Join Community</button></a>
+                    {user? <a href={`/communities/`+ c.id}><button>Go to Community</button></a>:null}
                 </div>
             )
     })}

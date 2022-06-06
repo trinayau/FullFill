@@ -32,19 +32,12 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/community" element={<Communities />} />
+            {/* Protected route */}
             <Route path="/profile"  element={
                 <PrivateRoute>
                   <Profile />
                 </PrivateRoute>
               } />
-            <Route
-              path="/private"
-              element={
-                <PrivateRoute>
-                  <LoggedIn/>
-                </PrivateRoute>
-              }
-            />
           </Routes>
           <Footer />
       </ThemeProvider>
