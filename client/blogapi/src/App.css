@@ -1,3 +1,46 @@
-* {
-    text-align: center;
+body {
+  text-align: center;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50px;
+}
+
+ol li {
+  list-style-type: none;
+  color: blue;
+}
+
+.locator-card {
+  margin-left: 100px;
+  width: 200px;
+  text-align: left;
+}
+
+.donation-card {
+  width: 70%;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.container-two img {
+  margin-left: 50px;
+  width: 500px;
+}
+
+.container-one h1 {
+  font-size: 60px;
+}
+
+.container-one {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 500px;
+}
+
+.flex {
+  display: flex;
+  flex-direction: row;
 }
