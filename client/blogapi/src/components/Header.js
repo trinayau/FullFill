@@ -162,7 +162,7 @@ function Header() {
             </Button>
             <Button
               onClick={(e) => {
-                handleLink("/community");
+                handleLink("/communities");
               }}
               sx={{ my: 2, color: "black", display: "block" }}
             >

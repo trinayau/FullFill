@@ -22,11 +22,7 @@ import AuthContext from "../context/AuthContext";
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const body = {
-            title: title,
-            description: description,
-            location: location
-        }
+
         const response = await axios.post('http://localhost:8000/api/communities/', {
             title: title,
             description: description,
