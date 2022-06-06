@@ -8,3 +8,8 @@ export { default as Logout } from "./Logout";
 export { default as Homepage } from "./Homepage";
 export { default as Locator } from "./Locator";
 export { default as Donation } from "./Donation";
+export { default as LoggedIn } from "./LoggedIn";
+export { default as Layout } from "./Layout";
+export { default as Communities } from "./Communities";
+export { default as Profile } from "./Profile";
+
