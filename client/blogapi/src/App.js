@@ -19,7 +19,9 @@ import {
   NotFoundPage,
   Newsletter
 } from "./components";
+
 import PrivateRoute from './utils/PrivateRoute'
+
 
 const App = () => {
   return (
