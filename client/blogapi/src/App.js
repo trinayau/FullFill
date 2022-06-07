@@ -22,6 +22,7 @@ import {
   LocatorPage,
   RecipePage,
   RegisterPage,
+  PublicProfilePage,
 } from "./pages";
 
 
@@ -38,16 +39,23 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/communities">
             <Route path="/communities" element={<Communities />} />
-              <Route path=":id" element={<Community />} />
+              <Route path=":id" element={
+              <PrivateRoute>
+              <Community />
+              </PrivateRoute>
+              } />
             </Route>
             <Route path="/newsletter" element={<Newsletter />} />
             
             {/* Protected route */}
+            <Route path="/profile">
             <Route path="/profile"  element={
                 <PrivateRoute>
                   <Profile />
                 </PrivateRoute>
               } />
+            <Route path="/profile/:username"  element={<PublicProfilePage/>} />
+              </Route>
             <Route path="*" element={<NotFoundPage/>}/>
             </Route>
           </Routes>
