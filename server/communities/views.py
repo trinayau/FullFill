@@ -1,6 +1,6 @@
 from rest_framework import generics
 from .models import Community, CommunityPost, Membership
-from .serializers import CommunitySerializer, CommunityPostSerializer
+from .serializers import CommunitySerializer, CommunityPostSerializer, MembershipSerializer
 from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -20,17 +20,37 @@ class CommunityDetail(generics.RetrieveUpdateDestroyAPIView):
 
 @api_view(['GET'])
 def community_posts(request, pk):
-    posts = CommunityPost.objects.filter(community_id=pk)
+    posts = CommunityPost.objects.filter(community=pk)
     serializer = CommunityPostSerializer(posts, many=True)
     return Response(serializer.data)
 
-@login_required
+@api_view(['GET'])
 def my_communities(request):
-    communities = Community.objects.filter(membership__user_id=request.user)
-    for community in communities:
-        community.member = Membership.objects.filter(user_id=request.user, community_id=community.id)[0]
+    communities = Community.objects.filter(members__user=request.user)
+    serializer = CommunitySerializer(communities, many=True) 
+    return Response(serializer.data)
+    # communities = Membership.objects.filter(user=request.user)
+    # for community in communities:
+    #     community.member = Membership.objects.filter(user_id=request.user, community_id=community.id)[0]
 
-    data = {
-        'communities': communities
-    }
-    return Response(data)
+    # data = {
+    #     'communities': communities
+    # }
+    # return Response(data)
+
+@api_view(['GET', 'POST'])
+def memberships(request, pk):
+    memberships = Membership.objects.filter(community=pk, user=request.user)
+   
+    if request.method == 'POST':
+        if len(memberships) == 0:
+            community = Community.objects.get(id=pk)
+            member = Membership(user=request.user, community=community, member_role='Member')
+            member.save()
+            return Response({'message': f'You are now member of {community.title}'})
+        else:
+            
+            return Response({'message': 'You already have membership of this community'})
+    
+    serializer = MembershipSerializer(memberships, many=True)
+    return Response(serializer.data)

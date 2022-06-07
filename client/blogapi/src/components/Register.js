@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axiosInstance from '../axios';
+import axiosInstance from '../utils/axios';
 import { useNavigate } from 'react-router-dom';
 import { Avatar, Box, Button, Checkbox, Container, CssBaseline, FormControlLabel, Grid, Link, TextField, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
