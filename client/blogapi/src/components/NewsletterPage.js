@@ -34,7 +34,7 @@ const Newsletter = () => {
                     <p class="des how-de">Get the Latest news about how to food industry is moving <br></br> sign up to our newsletter now</p>
                     <form onSubmit={e => onSubmit(e)} action="">
                         <div>
-                            <input
+                            <input className="news-input"
                                 type='text'
                                 name='first_name'
                                 onChange={e => onChange(e)}
@@ -44,7 +44,7 @@ const Newsletter = () => {
                                 required />
                         </div>
                         <div>
-                            <input
+                            <input className="news-input"
                                 type='email'
                                 name='email'
                                 onChange={e => onChange(e)}

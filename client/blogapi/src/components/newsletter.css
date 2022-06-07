@@ -23,7 +23,7 @@ text-align: center;
   
 }
 
-input[type="email"]{
+.news-input{
   display: inline-block;
   width: 60%;
   padding: 18px 36px;
@@ -37,22 +37,9 @@ input[type="email"]{
   box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.06); 
 
 }
-input[type="text"]{
-  display: inline-block;
-  width: 60%;
-  padding: 18px 36px;
-  margin: 8px 0;
-  border: 1px solid #ccc;
-  box-sizing: border-box;
-  height: 70px;
-  margin-top: 18px;
-  border-radius: 20px;
-  border: none;
-  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.06); 
 
-}
-input,
-input::-webkit-input-placeholder {
+.news-input,
+.news-input::-webkit-input-placeholder {
     font-size: 16px;
     line-height: 3;
 }
