@@ -13,6 +13,7 @@ import {
   Register,
   Donation,
 } from "./components";
+
 const App = () => {
   return (
     <div className="App">
