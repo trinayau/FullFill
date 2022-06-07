@@ -12,11 +12,10 @@ import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
-import logo from "./logo.png";
+import logo from "../../components/logo.png";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const pages = ["Community"];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
@@ -104,11 +103,11 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {pages.map((page) => (
+              {/* {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
-              ))}
+              ))} */}
             </Menu>
           </Box>
           {/* Only displays for mobile */}
@@ -157,8 +156,24 @@ function Header() {
             >
               Donation
             </Button>
+            <Button
+              onClick={(e) => {
+                handleLink("/recipes");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Recipes
+            </Button>
+            <Button
+              onClick={(e) => {
+                handleLink("/community");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Community
+            </Button>
 
-            {pages.map((page) => (
+            {/* {pages.map((page) => (
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
@@ -166,7 +181,7 @@ function Header() {
               >
                 {page}
               </Button>
-            ))}
+            ))} */}
             <nav>
               <Button
                 onClick={(e) => {

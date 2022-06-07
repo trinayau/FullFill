@@ -1,35 +1,38 @@
-import { ThemeProvider } from "@mui/material";
+// import { ThemeProvider } from "@mui/material";
 import React from "react";
-import "./App.css";
-import { theme } from "./theme";
+import "./styles/index.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { default as Layout } from "./layouts";
+import { Login, Logout } from "./components";
+
 import {
-  Footer,
-  Header,
-  Homepage,
-  Login,
-  Logout,
-  Locator,
-  Register,
-  Donation,
-} from "./components";
+  CommunityPage,
+  DonationPage,
+  IndexPage,
+  LocatorPage,
+  RecipePage,
+  RegisterPage,
+} from "./pages";
+
 const App = () => {
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
-        <Router>
-          <Header />
-          <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/locator" element={<Locator />} />
-            <Route path="/donation" element={<Donation />} />
-            <Route path="/register" element={<Register />} />
+      {/* <ThemeProvider theme={theme}> */}
+      <Router>
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<IndexPage />} />
+            <Route path="/locator" element={<LocatorPage />} />
+            <Route path="/donation" element={<DonationPage />} />
+            <Route path="/register" element={<RegisterPage />} />
+            <Route path="/community" element={<CommunityPage />} />
+            <Route path="/recipes" element={<RecipePage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
-          </Routes>
-          <Footer />
-        </Router>
-      </ThemeProvider>
+          </Route>
+        </Routes>
+      </Router>
+      {/* </ThemeProvider> */}
     </div>
   );
 };

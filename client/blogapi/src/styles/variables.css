@@ -1,0 +1,9 @@
+/* Colour Palette */
+
+:root {
+  --light-salmon: #f6cbc1;
+  --light-orange: hsl(28, 100%, 69%);
+  --olive-green: #a5bc79;
+  --vanilla: #f9ebcf;
+  --soft-red: #ef645e;
+}

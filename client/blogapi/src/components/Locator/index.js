@@ -6,10 +6,11 @@ import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import ModalCard from "../ModalCard";
 
-const Donation = () => {
+const Locator = () => {
   const [inputValue, setInputValue] = useState("");
-  const [submitValue, setSubmitValue] = useState("Clapham Common");
+  const [submitValue, setSubmitValue] = useState("SE1 4HD");
   const [locationData, setLocationData] = useState([]);
   const navigate = useNavigate();
 
@@ -31,14 +32,8 @@ const Donation = () => {
 
   const renderLocations = () => {
     return locationData.map((s, i) => (
-      <li
-        key={i}
-        className="show-link"
-        onClick={() => {
-          navigate(`/find-a-foodbank/${s.name}`);
-        }}
-      >
-        <Card sx={{ minWidth: 275 }} className="donation-card">
+      <li key={i} className="show-link">
+        <Card sx={{ minWidth: 275 }} className="locator-card">
           <CardContent>
             <Typography variant="h6" component="div">
               {s.name} Foodbank
@@ -46,14 +41,14 @@ const Donation = () => {
             <Typography sx={{ mb: 1.5 }} color="text.secondary">
               {s.distance_mi} miles away from {submitValue}
             </Typography>
-            <Typography sx={{ mb: 1.5 }} variant="body2">
-              {s.needs.needs}
+            <Typography variant="body2">
+              {s.address}
               <br />
               <strong>Phone number:</strong> {s.phone}
             </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">More Details</Button>
+            <ModalCard />
           </CardActions>
         </Card>
         <br />
@@ -76,21 +71,17 @@ const Donation = () => {
 
   return (
     <>
-      <h1>Donate Food:</h1>
+      <h1>Find a Food Bank:</h1>
       <p>
         {" "}
-        Your food donations count and are vital to give everyone referred a food
-        bank a balanced and nutritious three day supply of food.
+        Food banks are grassroots, charitable organisations aimed at supporting
+        people who cannot afford the essentials in life.
       </p>
       <br />
-      <p>
-        You can use the search box below to find the food the food banks near
-        you are in need of:
-      </p>
+      <p>You can contact your local food bank using the map below.</p>
 
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={handleInput} value={inputValue}></input>
-
         <button type="submit">Sumbit</button>
         <br />
         <br />
@@ -102,4 +93,4 @@ const Donation = () => {
   );
 };
 
-export default Donation;
+export default Locator;

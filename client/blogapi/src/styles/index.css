@@ -1,4 +1,17 @@
+@import "./variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
+* {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+html {
+  height: 100%;
+}
+
 body {
+  min-height: 100%;
   text-align: center;
 }
 
@@ -10,12 +23,11 @@ ol {
 
 ol li {
   list-style-type: none;
-  color: blue;
 }
 
 .locator-card {
   margin-left: 100px;
-  width: 200px;
+  width: 350px;
   text-align: left;
 }
 
