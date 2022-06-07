@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import axiosInstance from '../axios';
+import axiosInstance from '../utils/axios';
 import { useNavigate } from 'react-router-dom';
 import logo from './logo.png'
 
