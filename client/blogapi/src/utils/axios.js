@@ -14,10 +14,10 @@ const axiosInstance = axios.create({
     },
 });
 
-axiosInstance.interceptors.request.use(async req=>{
-	console.log('Interceptor req ran')
-	return req
-})
+// axiosInstance.interceptors.request.use(async req=>{
+// 	console.log('Interceptor req ran')
+// 	return req
+// })
 
 // axios interceptors- intercept and perform an action
 // intercept that we logout, or token needs refreshing

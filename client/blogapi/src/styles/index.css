@@ -129,3 +129,8 @@ ol li {
 button:focus{
   outline: none;
 }
+
+a:hover{
+  text-decoration: none;
+  color: var(--olive-green)
+}

@@ -58,6 +58,7 @@ function Header() {
             component="img"
             sx={{ display: { xs: "none", md: "flex" }, mr: 1 }}
             src={logo}
+            className="logo"
           />
           <Typography
             variant="h6"

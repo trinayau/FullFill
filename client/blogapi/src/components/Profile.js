@@ -1,3 +1,4 @@
+import { Avatar, IconButton, Typography } from '@mui/material';
 import React, {useContext, useEffect, useState} from 'react'
 import AuthContext from "../context/AuthContext";
 import axiosInstance from '../utils/axios';
@@ -15,22 +16,23 @@ const Profile = () => {
     }, []);
 
   return (
-    <>
-        <h1>{user? user.username +"'s" :'null'} Profile</h1>
-        <h2>These are the communities you have joined:</h2>
+    <div className='d-flex flex-column text-center justify-content-center'>  
+        <Avatar alt={user?user.username:'User'} style={{alignSelf:'center'}}src="/static/images/avatar/2.jpg" sx={{height:"150px", width:"150px",backgroundColor:"#adc178", fontSize:"3rem"}}/>
+        <Typography variant="h6" noWrap sx={{ml: 2}}> <h1>{user? user.username+"'s profile":null}</h1></Typography>
+        <h3>These are the communities you have joined:</h3>
         {communities? communities.map((c, i)=> {
             return (
                 <div key={i} style={{margin:"15px"}} id={c.id}>
-                    <h1>{c.title}</h1>
-                    <h2>{c.description}</h2>
-                    <h3>{c.location}</h3>
+                    <h3>{c.title}</h3>
+                    <p>{c.description}</p>
+                    <p>{c.location}</p>
                     <a href={`/communities/`+ c.id}><button>Go to Community</button></a>
                 </div>
             )
         }
   )
   : "No communities, why not join one today?"}
-</>
+</div>
   )
 }
 

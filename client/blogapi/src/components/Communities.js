@@ -33,14 +33,18 @@ import AuthContext from "../context/AuthContext";
 
   return (
     <div>
-    Make a new community:<br/>
-    {/* I forgot how to do react forms so change if wrong :) */}
+    
+    {user ? 
+    <div>
+    <h3>Make a new community:</h3><br/>
     <form onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="Name" onChange={(e)=>{setTitle(e.target.value)}}/>
         <input type="text" name="description" placeholder="Description" onChange={(e)=>{setDescription(e.target.value)}}/>
         <input type="text" name="Location" placeholder="Location" onChange={(e)=>{setLocation(e.target.value)}} />
         <input type="submit" value="submit"/>
     </form>
+    </div>: "Signup or login to make a new community or join one!"
+    }
     <h1>All Communities</h1>
     {communities && communities.map((c, i)=> {
             return (

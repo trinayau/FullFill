@@ -38,7 +38,11 @@ const App = () => {
             <Route path="/logout" element={<Logout />} />
             <Route path="/communities">
             <Route path="/communities" element={<Communities />} />
-              <Route path=":id" element={<Community />} />
+              <Route path=":id" element={
+              <PrivateRoute>
+              <Community />
+              </PrivateRoute>
+              } />
             </Route>
             <Route path="/newsletter" element={<Newsletter />} />
             
