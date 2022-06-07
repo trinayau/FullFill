@@ -16,13 +16,12 @@ const Community = () => {
     useEffect(() => {
         async function fetchData() {
             const response = await axios.get('http://localhost:8000/api/communities/' + id);
-            console.log(response.data)
             setCommunityTitle(response.data.title)
             setCommunityDescription(response.data.description)
            
         }
         fetchData();
-    }, [])
+    }, [id])
 
     useEffect(() => {
         async function fetchData() {
