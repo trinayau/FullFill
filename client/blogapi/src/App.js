@@ -1,18 +1,8 @@
-import { ThemeProvider } from "@mui/material";
+// import { ThemeProvider } from "@mui/material";
 import React from "react";
-import "./App.css";
-import { theme } from "./theme";
 import {Routes, Route } from "react-router-dom";
 
 import {
-  Footer,
-  Header,
-  Homepage,
-  Login,
-  Logout,
-  Locator,
-  Register,
-  Donation,
   Community,
   Communities,
   Profile,
@@ -21,18 +11,29 @@ import {
 } from "./components";
 
 import PrivateRoute from './utils/PrivateRoute'
+import "./styles/index.css";
+import { default as Layout } from "./layouts";
+import { Login, Logout } from "./components";
+
+import {
+  CommunityPage,
+  DonationPage,
+  IndexPage,
+  LocatorPage,
+  RecipePage,
+  RegisterPage,
+} from "./pages";
 
 
 const App = () => {
   return (
     <div className="App">
-      <ThemeProvider theme={theme}>
-          <Header />
           <Routes>
-            <Route path="/" element={<Homepage />} />
-            <Route path="/locator" element={<Locator />} />
-            <Route path="/donation" element={<Donation />} />
-            <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="/" element={<IndexPage />} />
+            <Route path="/locator" element={<LocatorPage />} />
+            <Route path="/donation" element={<DonationPage />} />
+            <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/logout" element={<Logout />} />
             <Route path="/communities">
@@ -48,9 +49,8 @@ const App = () => {
                 </PrivateRoute>
               } />
             <Route path="*" element={<NotFoundPage/>}/>
+            </Route>
           </Routes>
-          <Footer />
-      </ThemeProvider>
     </div>
   );
 };
