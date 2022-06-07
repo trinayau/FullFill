@@ -7,6 +7,6 @@ urlpatterns = [
     path('<int:pk>/', CommunityDetail.as_view(), name='community_detail'),
     path('posts/', CommunityPosts.as_view(), name='community_posts'),
     path('<int:pk>/posts/', community_posts, name="posts_by_community"),
-    path('<int:pk>/memberships', memberships, name="memberships_by_community"),
+    path('<int:pk>/memberships/', memberships, name="memberships_by_community"),
     path('mycommunities/', my_communities, name="my_communities"),
 ]
