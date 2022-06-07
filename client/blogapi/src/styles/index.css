@@ -6,15 +6,6 @@
   margin: 0;
 }
 
-html {
-  height: 100%;
-}
-
-body {
-  min-height: 100%;
-  text-align: center;
-}
-
 ol {
   display: flex;
   flex-direction: column;
@@ -50,9 +41,87 @@ ol li {
   margin-top: 50px;
   margin-left: 50px;
   width: 500px;
+ 
+}
+ /* homepage css */
+.container-1-home img{
+  width:100%; 
+  height:auto;
+  align-items: center; 
+  
+  display: block;
+ 
+}
+.container-1-text{
+  /* width:100%; */
+  height:auto;
+  text-align: left;
+  padding-left:25%;
+  padding-right:25%;
+  padding-top: 10%;
+
+  display: block;
+}
+.container-2-h2{
+  width:100%;
+
+}
+.locateBtn{
+  background-color: #FFE8BA;
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+  font-weight: 600;
+}
+.container-1-text h1{
+  font-weight: 800;
 }
 
-.flex {
+.card{
+  border: 0;
+}
+
+
+/* .flex {
   display: flex;
   flex-direction: row;
 }
+ .cards h2{
+  margin-left: 10px;
+  
+ }
+
+ .cards {
+  border: none;
+  align-items: center;
+ }
+
+ .card3{
+   height: 300px;
+   width:500px;
+ }
+
+ .card3 img{
+  height: 280px;
+  width:250px;
+  padding-left: 40px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.container-three img {
+  margin-left: 50px;
+  width: 500px;
+  height:450px;
+}
+
+.container-four h2 {
+  font-size: 40px;
+}
+
+.container-four {
+  margin-top: 50px;
+  margin-left: 50px;
+  width: 500px;
+  height:450px;
+  text-align: center;
+} */
