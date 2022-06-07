@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import axiosInstance from '../axios';
+import React, { useState, useContext } from 'react';
+import axiosInstance from '../utils/axios';
 import { useNavigate } from 'react-router-dom';
 import logo from './logo.png'
 
@@ -16,9 +16,12 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import jwt_decode from "jwt-decode";
+import AuthContext from "../context/AuthContext";
 const theme = createTheme();
 
 const Login = () => {
+  let {user, setUser} = useContext(AuthContext)
     const navigate = useNavigate();
     const initialFormData = Object.freeze({
 		email: '',
@@ -34,7 +37,6 @@ const Login = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(formData);
 
 		axiosInstance
 			.post(`token/`, {
@@ -44,11 +46,12 @@ const Login = () => {
 			.then((res) => {
 				localStorage.setItem('access_token', res.data.access);
 				localStorage.setItem('refresh_token', res.data.refresh);
+        setUser(jwt_decode(res.data.access))
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
-				navigate('/');
-				//console.log(res);
-				//console.log(res.data);
+				navigate('/profile');
+				// console.log(res);
+				// console.log(res.data);
 			});
 	};
 

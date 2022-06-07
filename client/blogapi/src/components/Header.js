@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useContext } from "react";
+//material ui
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,17 +14,18 @@ import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
 
 import logo from "./logo.png";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import AuthContext from "../context/AuthContext";
 
 const pages = ["Community"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
 function Header() {
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
   const navigate = useNavigate();
+
+  let {user} = useContext(AuthContext)
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -45,6 +47,7 @@ function Header() {
     handleCloseUserMenu();
     navigate(link);
   };
+
 
   return (
     <AppBar elevation={0} position="static" sx={{ backgroundColor: "white" }}>
@@ -122,7 +125,7 @@ function Header() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "Roboto",
+              fontFamily: "Pacifico",
               fontWeight: 700,
               letterSpacing: ".3rem",
               color: "black",
@@ -157,18 +160,34 @@ function Header() {
             >
               Donation
             </Button>
-
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "black", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-            <nav>
-              <Button
+            <Button
+              onClick={(e) => {
+                handleLink("/communities");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Community
+            </Button>
+            {user? 
+            <Button
+              onClick={(e) => {
+                handleLink("/logout");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Logout
+            </Button>
+            :
+            <>
+            <Button
+              onClick={(e) => {
+                handleLink("/Login");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Login
+            </Button>
+            <Button
                 onClick={(e) => {
                   handleLink("/register");
                 }}
@@ -176,13 +195,19 @@ function Header() {
               >
                 Register
               </Button>
+              </>
+            }
+            <nav>
+              
+              
             </nav>
           </Box>
-
+          {user?
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="User" src="/static/images/avatar/2.jpg" />
+                <Avatar alt={user?user.username:'User'} src="/static/images/avatar/2.jpg" sx={{backgroundColor:"#adc178"}}/>
+                <Typography variant="h6" noWrap sx={{ml: 2}}>Hi {user? user.username:null}</Typography>
               </IconButton>
             </Tooltip>
             <Menu
@@ -201,13 +226,15 @@ function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+            <MenuItem key="Profile" onClick={(e)=>{handleLink('/profile')}}>
+                  <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-              ))}
+                <MenuItem key="Logout" onClick={(e)=>{handleLink('/logout')}}>
+                  <Typography textAlign="center">Logout</Typography>
+                </MenuItem>
             </Menu>
           </Box>
+        :null}
         </Toolbar>
       </Container>
     </AppBar>

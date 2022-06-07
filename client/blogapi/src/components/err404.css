@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans:700');
+@import url('https://fonts.googleapis.com/css?family=Lato');
+body
+{
+  margin:0;
+  padding:0;
+  padding:5%;
+  font-family: 'Lato', sans-serif;
+}
+.err_page
+{
+  width:100%;
+  height:80%;
+  margin:4% auto;
+  background:#fff;
+  text-align:center;
+  display:flex;
+  align-items: center;
+}
+.err_page_right
+{
+  width:100%;
+}
+.err_page_left
+{
+    width:100%;
+}
+.err_page h1
+{
+  font-family: 'Noto Sans', sans-serif;
+  font-size:70pt;
+  margin:0;
+  color:#F6CBC1;
+}
+.err_page h4
+{ color:#EF645E;
+  font-size:14pt;
+}
+.err_page p
+{
+  font-size:14pt;
+  color: black;
+}
+.err_btn
+{
+  background:#F9EBCF;
+  border:2px solid #F6CBC1;
+  padding:20px;
+  border-radius:5px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  cursor:pointer;
+  font-size:13pt;
+  transition:background 0.5s;
+}
+.err_btn:hover
+{
+  background:#FFAB5F;
+  box-shadow: 0px 8px 10px rgba(0, 0, 0, 0.2);
+  color:#F9EBCF;
+}
+.credit
+{
+  color: #FFAB5F;
+}
+a
+{
+  color:#EF645E;
+}
+@media screen and (max-width: 800px)
+{
+  .err_page
+  {
+     flex-direction:column;  
+  }
+  .err_page_left img
+  {
+       width:250px;
+      height:auto;
+  }
+  .err_page h4
+  {
+    margin:0;
+  }
+}

@@ -1,0 +1,77 @@
+body{
+    font-family: "Rubik", sans-serif;
+    line-height: 1;
+    font-weight: 400;
+    color: black;
+  
+}
+.news{
+  padding: 4.8px 0 9.6px 0;
+text-align: center;
+}
+.news-heading{
+  font-size: 44px;
+  line-height: 1.4;
+  
+  color: black;
+}
+.news p{
+  font-size: 18px;
+  margin-bottom: 16px;
+  margin-top: 12px;
+  line-height: 1.8;
+  
+}
+
+input[type="email"]{
+  display: inline-block;
+  width: 60%;
+  padding: 18px 36px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 70px;
+  margin-top: 18px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.06); 
+
+}
+input[type="text"]{
+  display: inline-block;
+  width: 60%;
+  padding: 18px 36px;
+  margin: 8px 0;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  height: 70px;
+  margin-top: 18px;
+  border-radius: 20px;
+  border: none;
+  box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.06); 
+
+}
+input,
+input::-webkit-input-placeholder {
+    font-size: 16px;
+    line-height: 3;
+}
+
+.bt {
+  margin-left: auto;
+    font-size: 16px;
+    display: inline-block;
+    font-weight: 600;
+  padding: 16px 32px;
+  border-radius: 20px;
+
+  /* Only necessary for .btn */
+  border: none;
+  cursor: pointer;
+  background-color:#78B591;
+  color: #fff;
+  width: 25%;
+}
+.bt:hover{
+    background-color: #F6CBC1;
+}

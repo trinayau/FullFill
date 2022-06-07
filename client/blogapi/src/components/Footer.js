@@ -59,9 +59,9 @@ const Footer = () => {
 							<Typography variant="h6" color="textPrimary" gutterBottom>
 								{footer.title}
 							</Typography>
-							<ul>
+							<ul style={{padding: 0}}>
 								{footer.description.map((item) => (
-									<li key={item}>
+									<li key={item} style={{listStyle: "none", margin:0}}>
 										<Link href="#" variant="subtitle1" color="textSecondary">
 											{item}
 										</Link>

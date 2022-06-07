@@ -7,26 +7,47 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 
+import Map from './Map';
+
 const Locator = () => {
   const [inputValue, setInputValue] = useState("");
   const [submitValue, setSubmitValue] = useState("SE1 4HD");
   const [locationData, setLocationData] = useState([]);
+  const [locationArray, setLocationArray] = useState([]);
   const navigate = useNavigate();
 
   useEffect(() => {
+    setLocationArray([])
     async function searchApi(searchString) {
       try {
         const result = await axios.get(
           `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${searchString}`
         );
+      
+        // push lat_lng of each location into an array
+       
+       const setLatLng = () => result.data.map(location => {
+         const latLng = location.lat_lng.split(",");
+        //  convert latLng to an object
+          const latLngObj = {
+            title: location.name,
+            coords: {
+            lat: parseFloat(latLng[0]),
+            lng: parseFloat(latLng[1])
+            }
+          };
+         return setLocationArray(prevState => [...prevState, latLngObj]);
+        });
+        setLatLng();
         setLocationData(result.data);
-        console.log(result.data);
+
       } catch (err) {
         console.log(err);
       }
     }
 
     searchApi(submitValue);
+
   }, [submitValue]);
 
   const renderLocations = () => {
@@ -64,14 +85,12 @@ const Locator = () => {
   const handleInput = (e) => {
     const newValue = e.target.value;
     setInputValue(newValue);
-    console.log(inputValue);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setSubmitValue(inputValue);
     setInputValue("");
-    console.log("Submitted: ", submitValue);
   };
 
   return (
@@ -93,7 +112,9 @@ const Locator = () => {
         <h3>Foodbanks near {submitValue}:</h3>
         <br />
       </form>
+      <Map locationArray={locationArray} />
       <ol>{renderLocations()}</ol>
+      
     </>
   );
 };
