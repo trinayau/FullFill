@@ -28,7 +28,8 @@ import AuthContext from "../context/AuthContext";
             description: description,
             location: location
         });
-        console.log(response)
+        
+        setCommunities([...communities, response.data])
     }
 
   return (

@@ -10,7 +10,6 @@ const Community = () => {
 
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
-    const [location, setLocation] = useState('')
 
     const navigate = useNavigate();
     const handleRedirect = () => {
@@ -44,7 +43,8 @@ const handleSubmit = async (e) => {
         description: description,
         community: id
     });
-    console.log(response)
+    setPosts([...posts, response.data])
+    console.log(response.data)
 }
 
     return (
@@ -52,7 +52,6 @@ const handleSubmit = async (e) => {
         <form onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="Title" onChange={(e)=>{setTitle(e.target.value)}}/>
         <input type="text" name="description" placeholder="Description" onChange={(e)=>{setDescription(e.target.value)}}/>
-        <input type="text" name="Location" placeholder="Location" onChange={(e)=>{setLocation(e.target.value)}} />
         <input type="submit" value="submit"/>
     </form>
         {communityTitle && communityTitle?
@@ -65,8 +64,8 @@ const handleSubmit = async (e) => {
                 return (
                     <div key={i} style={{margin:"15px"}} id={p.id}>
                         <h1>{p.title}</h1>
-                        <h2>{p.description}</h2>
-                        <h3>{p.location}</h3>
+                        <p>User: {p.creator.first_name}</p>
+                        <p>{p.description}</p>
 
         </div>
                 )
