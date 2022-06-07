@@ -125,3 +125,7 @@ ol li {
   height:450px;
   text-align: center;
 } */
+
+button:focus{
+  outline: none;
+}
