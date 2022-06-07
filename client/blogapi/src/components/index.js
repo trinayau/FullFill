@@ -14,4 +14,5 @@ export { default as Communities } from "./Communities";
 export { default as Community } from "./Community";
 export { default as Profile } from "./Profile";
 export { default as NotFoundPage } from "./NotFoundPage";
+export { default as Newsletter } from "./NewsletterPage";
 

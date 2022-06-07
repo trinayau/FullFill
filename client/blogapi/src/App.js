@@ -17,6 +17,7 @@ import {
   Communities,
   Profile,
   NotFoundPage,
+  Newsletter
 } from "./components";
 import PrivateRoute from './utils/PrivateRoute'
 
@@ -36,6 +37,8 @@ const App = () => {
             <Route path="/communities" element={<Communities />} />
               <Route path=":id" element={<Community />} />
             </Route>
+            <Route path="/newsletter" element={<Newsletter />} />
+            
             {/* Protected route */}
             <Route path="/profile"  element={
                 <PrivateRoute>
