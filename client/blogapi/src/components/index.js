@@ -13,5 +13,6 @@ export { default as Layout } from "./Layout";
 export { default as Communities } from "./Communities";
 export { default as Community } from "./Community";
 export { default as Profile } from "./Profile";
+export { default as Map } from "./Map";
 export { default as NotFoundPage } from "./NotFoundPage";
 
