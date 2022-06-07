@@ -6,19 +6,17 @@ import { GoogleMap, useLoadScript, Marker } from '@react-google-maps/api';
 const Map = ({locationArray}) => {
     const [ myMap, setMyMap ] = useState(null);
     const [ center, setCenter ] = useState({ lat: 51.50032327759917, lng: -0.12867958445367034 });
-    const [ id, setId ] = useState(0);
-    const [ markers, setMarkers ] = useState([]);
-    const [ drawMarker, setDrawMarker ] = useState(false);
   
     const { isLoaded } = useLoadScript({
       googleMapsApiKey: process.env.REACT_APP_GOOGLE_KEY,
     });
 
+    useEffect(() => {
+        if (locationArray.length > 0) {
+            setCenter({ lat: locationArray[0].coords.lat, lng: locationArray[0].coords.lng });
+        }
+    }, [locationArray]);
 
-    const addMarker = (coords) => {
-        setId((id)=>id+1);
-        setMarkers((markers) => markers.concat([{coords, id}]) )
-      }
   
     const renderMap = () => (
         <>
@@ -28,7 +26,7 @@ const Map = ({locationArray}) => {
               width: "50vw",
               margin: "20px",
             }}
-            zoom={10}
+            zoom={12}
             center={center}
             onLoad={map => setMyMap(map)}
             onClick={(e)=> console.log(e.latLng.toJSON())}
@@ -44,15 +42,6 @@ const Map = ({locationArray}) => {
              
           })):null}
           </GoogleMap>
-          <button
-        type="button"
-        style={{backgroundColor: drawMarker ? "green" : null}}
-        onClick={()=>{setDrawMarker(()=>!drawMarker)}}
-      >ADD & DRAG</button>
-      <button
-        type="button"
-        onClick={()=>setMarkers([])}
-      >CLEAR MAP</button>
           </>
     )
   

@@ -30,7 +30,6 @@ const Register = () => {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		console.log(formData, 'form data');
 
 		axiosInstance
 			.post(`user/register/`, {
@@ -40,8 +39,6 @@ const Register = () => {
 			})
 			.then((res) => {
 				navigate('/login');
-				console.log(res, 'res');
-				console.log(res.data, 'res data');
 			});
 	};
 

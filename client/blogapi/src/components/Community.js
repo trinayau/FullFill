@@ -63,7 +63,7 @@ const handleSubmit = async (e) => {
             {posts.length>0? posts.map((p, i)=> {
                 return (
                     <div key={i} style={{margin:"15px"}} id={p.id}>
-                        <h1>{p.title}</h1>
+                        <h3>{p.title}</h3>
                         <p>User: {p.creator.first_name}</p>
                         <p>{p.description}</p>
 
@@ -71,7 +71,7 @@ const handleSubmit = async (e) => {
                 )
             }
             ): "No posts"}
-</div>:null}
+</div>: 'nothing to see here'}
 </>
     )
 }

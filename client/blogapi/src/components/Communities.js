@@ -14,7 +14,6 @@ import AuthContext from "../context/AuthContext";
     useEffect(() => {
         async function fetchData() {
             const response = await axiosInstance.get('http://localhost:8000/api/communities/');
-            console.log(response.data)
             setCommunities(response.data)
         }
         fetchData();
@@ -46,9 +45,9 @@ import AuthContext from "../context/AuthContext";
     {communities && communities.map((c, i)=> {
             return (
                 <div key={i} style={{margin:"15px"}} id={c.id}>
-                    <h1>{c.title}</h1>
-                    <h2>{c.description}</h2>
-                    <h3>{c.location}</h3>
+                    <h3>{c.title}</h3>
+                    <h5>{c.description}</h5>
+                    <p>{c.location}</p>
                     {user? <a href={`/communities/`+ c.id}><button>Go to Community</button></a>:null}
                 </div>
             )
