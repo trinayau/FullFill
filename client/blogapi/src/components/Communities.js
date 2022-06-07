@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import axios from 'axios'
+import axiosInstance from '../utils/axios';
 import AuthContext from "../context/AuthContext";
  const Communities = () => {
 
@@ -13,7 +13,7 @@ import AuthContext from "../context/AuthContext";
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axios.get('http://localhost:8000/api/communities/');
+            const response = await axiosInstance.get('http://localhost:8000/api/communities/');
             console.log(response.data)
             setCommunities(response.data)
         }
@@ -23,7 +23,7 @@ import AuthContext from "../context/AuthContext";
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await axios.post('http://localhost:8000/api/communities/', {
+        const response = await axiosInstance.post('http://localhost:8000/api/communities/', {
             title: title,
             description: description,
             location: location
