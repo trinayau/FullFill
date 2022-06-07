@@ -1,4 +1,7 @@
-import { Card, Avatar, Typography, IconButton, Snackbar, Alert } from "@mui/material";
+import { Card, Avatar, Typography, IconButton, Snackbar, Alert, Checkbox, CardActions, Chip } from "@mui/material";
+import { Favorite, FavoriteBorder, Share, SentimentSatisfiedAltOutlined, SentimentSatisfiedAlt } from "@mui/icons-material";
+import dayjs from "dayjs"
+
 import React, {useState, useEffect} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axios";
@@ -23,6 +26,7 @@ const [state, setState] = React.useState({
     horizontal: 'center',
   });
   const { vertical, horizontal, open } = state;
+  const navigate = useNavigate();
 const [alertMessage, setAlertMessage] = useState('');
 
     // checks if user is member of community
@@ -50,7 +54,6 @@ const [alertMessage, setAlertMessage] = useState('');
     useEffect(() => {
         async function fetchData() {
             const response = await axiosInstance.get('http://localhost:8000/api/communities/' + id + '/posts/');
-            console.log(response.data)
             setPosts(response.data)
 
         }
@@ -72,8 +75,6 @@ const handleSubmit = async (e, reason) => {
     setAlertMessage('Your new post has been created!')
     setState({ open: true, vertical: 'top',
     horizontal: 'center', });
-
-
 }
 // user joins community
 const handleJoin = async(e)=>{
@@ -92,6 +93,10 @@ const handleJoin = async(e)=>{
     setState({  vertical: 'top',
     horizontal: 'center', open: false });
   };
+
+  const handleClick = (username) => {
+    navigate(`/profile/${username}`);
+  }
 
     return (
       <>
@@ -142,7 +147,7 @@ const handleJoin = async(e)=>{
 
             <h3 className="my-2">Posts</h3>
             {posts.length > 0
-              ? posts.map((p, i) => {
+              ? posts.slice(0).reverse().map((p, i) => {
                   return (
                     <Card
                       key={i}
@@ -159,12 +164,23 @@ const handleJoin = async(e)=>{
                           src="/static/images/avatar/2.jpg"
                           sx={{ backgroundColor: getRandomColour() }}
                         />
-                        <Typography variant="h6" noWrap sx={{ ml: 2 }}>
+                        <Typography variant="h6" noWrap sx={{ ml: 2 }} onClick={e=> handleClick(p.creator.user_name)}>
                           {p.creator.user_name}
                         </Typography>
                       </IconButton>
                       <h4>{p.title}</h4>
                       <p>{p.description}</p>
+
+                    <Chip label={"Posted "+dayjs(p.created_at).format('DD/MM/YYYY')}/>
+                      <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+          <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite sx={{color:"red"}} />} />
+          </IconButton>
+          <IconButton aria-label="share">
+            <Checkbox icon ={<SentimentSatisfiedAltOutlined />} checkedIcon={<SentimentSatisfiedAlt sx={{color:"blue"}} />} />
+          </IconButton>
+          
+        </CardActions>
                     </Card>
                   );
                 })

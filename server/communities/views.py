@@ -61,7 +61,7 @@ def allmemberships(request):
     return Response(serializer.data)
 
 @api_view(['GET'])
-def usermemberships(request):
-    memberships = Membership.objects.filter(user=request.user)
+def usermemberships(request, pk):
+    memberships = Membership.objects.filter(user=pk)
     serializer = MembershipSerializer(memberships, many=True)
     return Response(serializer.data)

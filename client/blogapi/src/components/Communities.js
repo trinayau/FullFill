@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axiosInstance from '../utils/axios';
 import AuthContext from "../context/AuthContext";
+import { Button } from '@mui/material';
  const Communities = () => {
 
     const [communities, setCommunities] = useState(null)
@@ -46,13 +47,13 @@ import AuthContext from "../context/AuthContext";
     </div>: "Signup or login to make a new community or join one!"
     }
     <h1>All Communities</h1>
-    {communities && communities.map((c, i)=> {
+    {communities && communities.slice(0).reverse().map((c, i)=> {
             return (
                 <div key={i} style={{margin:"15px"}} id={c.id}>
                     <h3>{c.title}</h3>
                     <h5>{c.description}</h5>
                     <p>{c.location}</p>
-                    {user? <a href={`/communities/`+ c.id}><button>Go to Community</button></a>:null}
+                    {user? <a href={`/communities/`+ c.id}><Button variant='contained'>Go to Community</Button></a>:null}
                 </div>
             )
     })}
