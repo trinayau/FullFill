@@ -26,7 +26,7 @@ const Profile = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('http://localhost:8000/api/communities/mycommunities');
+            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/mycommunities');
             setCommunities(response.data)
         }
         fetchData();
