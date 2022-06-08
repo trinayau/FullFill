@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import "./newsletter.css";
-
+import axios from 'axios';
+import { Oval } from 'react-loader-spinner'
 
 const Newsletter = () => {
+
+    const [loading, setLoading] = useState(false)
 
     const [agree, setAgree] = useState(false)
 
@@ -21,6 +24,36 @@ const Newsletter = () => {
     }
     const onSubmit = (e) => {
         e.preventDefault()
+
+        const config = {
+            headers: {
+                'Accept': 'application/json',
+                'content-type': 'application/json'
+
+            }
+        }
+
+        const body = JSON.stringify({
+            email,
+            first_name,
+            agree
+        })
+
+        const fetchData = async () => {
+            setLoading(true);
+            try {
+                await axios.post(
+                    'http://localhost:8000/api/newsletter/signup/',
+                    body,
+                    config
+                );
+            } catch(err) {
+
+            }
+            setLoading(false);
+        };
+
+        fetchData();
     }
 
 
@@ -66,11 +99,19 @@ const Newsletter = () => {
                                 htmlFor='agree'> I agree to terms and conditions and conditions
                             </label>
                         </div> <br></br>
-                        <button class="bt">Subscribe</button>
+                        {
+                            loading ? (
+                                <div>
+                                    <Oval class="oval" color="#00BFFF" height={50} width={50} />
+                                </div>
+                            ) : (
+                                <button class="bt">Subscribe</button>
+                            )
+                        }
+
                     </form>
                 </div>
             </div>
-
         </section>
     </>);
 }

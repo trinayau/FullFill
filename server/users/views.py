@@ -6,7 +6,8 @@ from rest_framework.views import APIView
 from .serializers import CustomUserSerializer
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.permissions import AllowAny, IsAuthenticated
-
+from rest_framework.decorators import api_view
+from .models import NewUser
 
 class CustomUserCreate(APIView):
     permission_classes = [AllowAny]
@@ -43,3 +44,9 @@ class WhoAmI(APIView):
         serializer = CustomUserSerializer(request.user)
 
         return Response(serializer.data)
+
+@api_view(['GET'])
+def checkUserId(request, username):
+    users = NewUser.objects.filter(user_name=username)
+    serializer = CustomUserSerializer(users, many=True)
+    return Response(serializer.data)

@@ -12,8 +12,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://github.com/Scralfie/FullFill/">
+        FullFill
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -59,9 +59,9 @@ const Footer = () => {
             <Typography variant="h6" color="textPrimary" gutterBottom>
               {footer.title}
             </Typography>
-            <ul>
+            <ul style={{listStyle:'None', padding:0}}>
               {footer.description.map((item) => (
-                <li key={item}>
+                <li key={item} style={{textDecoration:'None'}}>
                   <Link href="#" variant="subtitle1" color="textSecondary">
                     {item}
                   </Link>

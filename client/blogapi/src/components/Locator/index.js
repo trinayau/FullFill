@@ -101,7 +101,7 @@ const Locator = () => {
 
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={handleInput} value={inputValue}></input>
-        <button type="submit">Sumbit</button>
+        <button type="submit">Search</button>
         <br />
         <br />
         <h3>Foodbanks near {submitValue}:</h3>

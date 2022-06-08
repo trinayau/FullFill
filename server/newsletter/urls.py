@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import newsletterSignup
+app_name = 'newsletter'
 
-urlPattern = {
-    path('signup', newsletterSignup.as_view())
-}
+urlpatterns = [
+    path('signup/', newsletterSignup.as_view(), name='newsletter')
+]
