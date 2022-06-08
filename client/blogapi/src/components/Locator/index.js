@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import ModalCard from "../ModalCard";
 import { Col, Row, Container, Card, CardGroup, Button } from "react-bootstrap";
 import "./Locator.css";
@@ -73,13 +70,13 @@ const Locator = () => {
         </Card>
         <br /> */}
 
-        <Card className="locator-card" style={{ width: "18rem" }}>
+        <Card className="info-card" style={{ width: "18vw" }}>
           <Card.Body>
             <Card.Title> {s.name} Foodbank</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
               {s.distance_mi} miles away from {submitValue}
             </Card.Subtitle>
-            <Card.Text>
+            <Card.Text style={{ fontSize: "0.9rem" }}>
               {s.address}
               <br />
               <strong>Phone number:</strong> {s.phone}
@@ -105,28 +102,36 @@ const Locator = () => {
 
   return (
     <>
-      <h1>Find a Food Bank:</h1>
+      <h2 className="header">Find a Food Bank in your Area:</h2>
+      <br />
       <p>
         {" "}
         Food banks are grassroots, charitable organisations aimed at supporting
         people who cannot afford the essentials in life.
       </p>
-      <br />
       <p>You can contact your local food bank using the map below.</p>
 
       <form onSubmit={handleSubmit}>
-        <input type="text" onChange={handleInput} value={inputValue}></input>
-        <button type="submit">Search</button>
+        <input
+          type="text"
+          onChange={handleInput}
+          value={inputValue}
+          placeholder="Enter a postcode, city or address to locate"
+        ></input>
+        <button className="submitBtn" type="submit">
+          Sumbit
+        </button>
         <br />
         <br />
-        <h3>Foodbanks near {submitValue}:</h3>
+        <h5>Foodbanks near {submitValue}:</h5>
         <br />
       </form>
+
       <Row>
-        <Col xl={7}>
+        <Col xl={7} className="locator-elements">
           <Map locationArray={locationArray} />
         </Col>
-        <Col xl={3}>
+        <Col xl={3} className="locations-scroll">
           <ol>{renderLocations()}</ol>
         </Col>
       </Row>
