@@ -1,5 +1,5 @@
 import React from "react";
-import { Homepage } from "../../components";
+import { Homepage, Newsletter } from "../../components";
 import Homecards from "../../components/Homecards";
 
 const IndexPage = () => {
@@ -7,6 +7,7 @@ const IndexPage = () => {
     <div>
       <Homepage />
       <Homecards/>
+      <Newsletter />
     </div>
   );
 };

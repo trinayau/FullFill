@@ -88,3 +88,8 @@ docs/_build/
 
 .env.local
 .env
+
+# Local Netlify folder
+.netlify
+
+Pipfile.lock

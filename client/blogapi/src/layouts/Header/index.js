@@ -50,7 +50,7 @@ function Header() {
 
 
   return (
-    <AppBar elevation={0} position="static" sx={{ backgroundColor: "white" }}>
+    <AppBar elevation={0} position="static" sx={{ backgroundColor: "white", height:"150px"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* only displays if above medium breakpoint */}
@@ -71,7 +71,7 @@ function Header() {
               fontFamily: "Pacifico",
               fontWeight: 700,
               letterSpacing: ".1rem",
-              fontSize: "1 rem",
+              fontSize: "1.5rem",
               color: "black",
               textDecoration: "none",
             }}
