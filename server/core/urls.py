@@ -14,5 +14,5 @@ urlpatterns = [
     path('api/token/', MyTokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('api/communities/', include('communities.urls', namespace='communities')),
-    # path('api/newsletter/', include('newsletter.urls', namespace='newsletter')),
+    path('api/newsletter/', include('newsletter.urls', namespace='newsletter')),
 ]
