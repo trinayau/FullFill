@@ -5,7 +5,7 @@ import green  from "../Images/green.jpg";
 import orange  from "../Images/orange.jpg";
 import pink from "../Images/pink.jpg";
 import nav from "../Images/nav.jpg";
-
+import bowl from "../Images/bowl.jpg";
 const Homecards = () => {
   return (
     <div className="App">
@@ -26,7 +26,7 @@ const Homecards = () => {
       </Card>
     </Col>
    
-    <Col>
+    <Col >
       <Card>
         <Card.Img variant="top" src="https://images.unsplash.com/photo-1598720290281-9f26ae6d6f81?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
         <Card.Body>
@@ -56,14 +56,15 @@ const Homecards = () => {
 <br/>
 
 {/* second cards */}
+<div className="cardsone">
 <div className ="container-card">
   <div className="cards">
-  <h2>Top Requests</h2> <br/>
+  <h2>Featured Communities</h2> <br/>
   </div>
 <Row xs={1} md={2} className="g-3">
 
     <Col>
-      <Card>
+      <Card className="card1">
         <Card.Img variant="top" src={yellow} />
         <Card.Body>
           <Card.Title><strong>Colindale <br/> Foodbank <br/>
@@ -72,8 +73,8 @@ Volunteers</strong></Card.Title>
       </Card>
     </Col>
    
-    <Col>
-      <Card>
+    <Col className="card2" >
+      <Card className="card2">
         <Card.Img variant="top" src={green} />
         <Card.Body>
           <Card.Title><strong>Balham<br/> Food<br/> Consortium 
@@ -81,7 +82,10 @@ Volunteers</strong></Card.Title>
         </Card.Body>
       </Card>
     </Col>
-    <Col>
+    
+    
+
+    <Col className="card3" >
       <Card>
         <Card.Img variant="top" src={pink} />
         <Card.Body>
@@ -90,7 +94,7 @@ Volunteer</strong></Card.Title>
         </Card.Body>
       </Card>
     </Col>
-    <Col>
+    <Col className="card4" >
       <Card>
         <Card.Img variant="top" src={orange} />
         <Card.Body>
@@ -99,6 +103,7 @@ Volunteer</strong></Card.Title>
       </Card>
     </Col>
 </Row>  
+</div>
 </div>
 <br/>
 <br/>
@@ -145,19 +150,37 @@ Can you help us?</h2>
         <Row >
             <br/>
             <br/>
-          <Col xl={6}><div className="container-card3-1">
+            <br/>
+
+          <Col xl={8}><div className="container-card4-1">
               <h5>Our mission:</h5>
               <br/>
-          <h2>Connecting people in communities 
+          <h2>Connecting people in communities <br/>
 through technology to reduce 
+<br/>
 food poverty in the UK.</h2>
 </div>   
             </Col>
-          <Col xl={6}><div className="container-card3-2">
-    
+          <Col xl={4}><div className="container-card4-2">
+          <img src={bowl} alt="fruit bowl"/>
           </div></Col>
         </Row>
       </div>
+
+<br/>
+<br/>
+<Card className='card3'style={{ width: '100%' }}>
+  <Row>
+  <Col xl={12} lg={12}  >
+  <Card.Body>
+    <Card.Text>
+    <h1>Are you a corporation<br/> who wants to donate surplus food?</h1>
+    </Card.Text>
+    <Button >Join the Corporate Community</Button>
+  </Card.Body>
+  </Col>
+  </Row>
+</Card>  
 
 
 

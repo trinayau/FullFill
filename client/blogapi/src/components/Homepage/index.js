@@ -1,5 +1,5 @@
 import React from "react";
-import { Col, Row, Container,Card,CardGroup,Button } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 const Homepage = () => {
   return (
@@ -21,9 +21,11 @@ const Homepage = () => {
             <br/>
           </div>
           </Col>
-         
+          <Col xl={6}> <div className="container-1-text">
             <img className="img-fluid"
               src="https://images.pexels.com/photos/6995215/pexels-photo-6995215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
+              </div>
+              </Col>
               </Row>
       </div>
 <br/>
