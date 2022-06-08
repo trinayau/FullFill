@@ -1,11 +1,29 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/93c5450c-e466-4130-8068-adfd7764e196/deploy-status)](https://app.netlify.com/sites/fullfill/deploys)
+![Heroku](https://pyheroku-badge.herokuapp.com/?app=fullfill-server&style=flat)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=flat&logo=appveyor)](https://opensource.org/licenses/MIT)
 # Gebru Team 2 - Lap 4 Futureproof Final Project
 Project FullFill
 
 ## Description
 A fullstack project that aims to serve those facing food poverty by providing a one-stop-shop for both corporate and public volunteers to organise food donations and outreach, as well as for those in need to find local food banks.
 
+Client deployed via Netlify: [https://fullfill-server.herokuapp.com/](https://fullfill.netlify.app/)  
+Server deployed via Heroku: https://fullfill-server.herokuapp.com/  
+
+## Team Organisation
+
+| Team Member     | Role |
+|----------|------|
+| [Alfie Kelly](https://github.com/Scralfie)    | Back End Development and Research    |
+| [Amarachi Umeloh](https://github.com/umeloha) | Front End Development and Design      |
+| [Doreen Kamushinda](https://github.com/doreenkam)   | Front End Development and Design      |
+| [Thayaan Srisathialingam](https://github.com/THAYAANS)  | Front End Development and Testing    |
+| [Trina Yau](https://github.com/trinayau)    | Front/Back End Development and Planning      |
+
+
 ## Installation and Usage
-Clone or fork this repo
+To run locally:  
+Clone or fork this repo  
 Client:
 1. Run `cd client/blogapi` in terminal to enter React client directory
 2. Run `npm install` to install all dependencies
@@ -15,8 +33,13 @@ Server:
 1. Run `cd server` in terminal to enter Django server directory
 2. Run `pipenv shell` to enter virtual enviroment
 3. Run `pipenv install` to install all dependencies
-4. Run `python manage.py runserver` to start the server
+4. Run `python manage.py makemigrations to start db
+5. Run `python manage.py migrate` to migrate changes
+6. Run `python manage.py runserver` to start the server
 
+A .env file is required for the client to run perfectly: 
+- Make a `.env` file in client/blogapi 
+- Inside the file: put `REACT_APP_GOOGLE_KEY=YOUR_GOOGLE_MAPS_API_KEY` please put your own Google Maps API key in here
 
 ## Product (USP)
 - Not just providing a platform to find food banks, but also to allow people to organise themselves into grassroots volunteering groups to serve their local community.
@@ -31,20 +54,17 @@ Server:
 - Deployment
 
 ### Should-haves:
-- Realtime chatroom in community page
 - Events/blog post section -> Admin get to post
-
-### Could-haves/Stretch Goals:
 - Individual user profiles -> what community you are part of
-- Add profile photo
 - Mailers -> sign up for newsletter for this week's volunteering opportunities
 
+### Could-haves/Stretch Goals:
+- User can add own profile photo
+
 ## Technologies
-- Frontend: React
-- Backend: Django using django-rest-framework
-- API: Give Food API
-- Database: Django SQLite
-
-
-
-
+| Purpose   | Technology                                                    |
+|-----------|---------------------------------------------------------------|
+| Front End | React designed using MaterialUI library                       |
+| Back End  | Django using Django Rest Framework                            |
+| APIs      | Give Food API, Google Maps API, Spoonacular API for databases |
+| Database  | Heroku PostgreSQL DB                                          |
