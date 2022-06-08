@@ -106,7 +106,8 @@ const handleJoin = async(e)=>{
     const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/'+postId+'/comments/', {
         comment: newComment
     });
-    setComment([...comment, response.data])
+    showComment(e, postId)
+    // for alert:
     setAlertMessage('Your comment has been added!')
     setState({ open: true, vertical: 'top',
     horizontal: 'center', });
