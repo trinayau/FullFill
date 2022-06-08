@@ -1,0 +1,19 @@
+@import "../../styles/variables.css";
+
+body {
+  text-align: center;
+}
+
+ol {
+  display: flex;
+  flex-direction: column;
+}
+
+ol li {
+  list-style-type: none;
+}
+
+.locator-card {
+  text-align: left;
+  background-color: var(--light-salmon);
+}

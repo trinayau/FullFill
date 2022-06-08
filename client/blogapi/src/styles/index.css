@@ -6,22 +6,6 @@
   margin: 0;
 }
 
-ol {
-  display: flex;
-  flex-direction: column;
-  margin-top: 50px;
-}
-
-ol li {
-  list-style-type: none;
-}
-
-.locator-card {
-  margin-left: 100px;
-  width: 350px;
-  text-align: left;
-}
-
 .donation-card {
   width: 70%;
   text-align: left;
@@ -41,51 +25,57 @@ ol li {
   margin-top: 50px;
   margin-left: 50px;
   width: 500px;
- 
 }
- /* homepage css */
-.container-1-home img{
-  width:100%; 
-  height:auto;
-  align-items: center; 
-  
+/* homepage css */
+.container-1-home img {
+  width: 100%;
+  height: auto;
+  align-items: center;
+
   display: block;
- 
 }
-.container-1-text{
+.container-1-text {
   /* width:100%; */
-  height:auto;
+  height: auto;
   text-align: left;
-  padding-left:25%;
-  padding-right:25%;
+  padding-left: 25%;
+  padding-right: 25%;
   padding-top: 10%;
 
   display: block;
 }
+
 .container-2-h2{
   width:100%;
   font-size: 40px;
   font-weight: 700;
 
+
+.container-2-h2 {
+  width: 100%;
+
 }
-.locateBtn{
-  background-color: #FFE8BA;
+.locateBtn {
+  background-color: #ffe8ba;
   border-radius: 10px;
   padding: 20px;
   border: none;
   font-weight: 600;
 }
-.container-1-text h1{
+.container-1-text h1 {
   font-weight: 800;
 }
 
-.card{
+.card {
   border: 0;
   align-items: center;
 }
 
 
 .flex {
+
+/* .flex {
+
   display: flex;
   flex-direction: row;
 }

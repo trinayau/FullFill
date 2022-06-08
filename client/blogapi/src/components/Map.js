@@ -1,5 +1,3 @@
-
-//gmaps
 import React, { useState, useEffect } from 'react'
 import { GoogleMap, useLoadScript, Marker, InfoWindow } from '@react-google-maps/api';
 
@@ -72,3 +70,4 @@ const Map = ({locationArray}) => {
   }
   
   export default Map
+
