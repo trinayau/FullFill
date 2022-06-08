@@ -119,7 +119,7 @@ const Locator = () => {
           placeholder="Enter a postcode, city or address to locate"
         ></input>
         <button className="submitBtn" type="submit">
-          Sumbit
+          Search
         </button>
         <br />
         <br />
