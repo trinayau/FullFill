@@ -69,14 +69,11 @@ def usermemberships(request, pk):
 @api_view(['GET', 'POST'])
 def post_comments(request, pk):
     if request.method == 'POST':
-        if len(memberships) == 0:
-            comments = Comment.objects.get(id=pk)
-            post = Membership(user=request.user, community=community, member_role='Member')
-            member.save()
-            return Response({'message': f'You are now member of {community.title}'})
-        else:
-            
-            return Response({'message': 'You already have membership of this community'})
+        post = CommunityPost.objects.get(id=pk)
+        comment = Comment(name=request.user, username=request.user.user_name, post=post, body=request.data['comment'])
+        comment.save()
+        serializer = CommentSerializer(comment)
+        return Response(serializer.data)
 
     comments = Comment.objects.filter(post=pk)
     serializer = CommentSerializer(comments, many=True)

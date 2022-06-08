@@ -58,6 +58,7 @@ const Map = ({ locationArray }) => {
         {selectedMarker && (
           <InfoWindow
             position={selectedMarker.coords}
+           
             onCloseClick={() => {
               setSelectedMarker(null);
             }}
