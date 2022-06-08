@@ -10,6 +10,7 @@ coverage = "*"
 pytest = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
+requests = "*"
 
 [dev-packages]
 

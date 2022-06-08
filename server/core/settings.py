@@ -186,3 +186,6 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+
+ACTIVE_CAMPAIGN_URL = 'https://kellyalfie6.api-us1.com'
+ACTIVE_CAMPAIGN_KEY = 'ae468bdc7308a058e8e33c610d7453196145410d7d7dff5dd251f6cbcd421eb108c02c7d'
