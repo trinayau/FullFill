@@ -25,13 +25,12 @@ function App() {
   return (
     <div className="App">
       <section className="controls">
-        <h1>Recipes</h1>
-        <input
-          type="number"
-          placeholder="Calories (e.g. 2000)"
-          onChange={handleChange}
-        />
-        <button onClick={getMealData}>Get Daily Meal Plan</button>
+        <h1>Recipe Finder</h1>
+        <h2>
+          Enter the ingredients you want to use and we'll find meals for you:
+        </h2>
+        <input type="text" placeholder="" onChange={handleChange} />
+        <button onClick={getMealData}>Submit</button>
       </section>
       {mealData && <MealList mealData={mealData} />}
     </div>
