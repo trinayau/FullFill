@@ -1,6 +1,8 @@
+from re import S
+from django.db import IntegrityError
 from rest_framework import generics
-from .models import Community, CommunityPost, Membership, Comment
-from .serializers import CommunitySerializer, CommunityPostSerializer, MembershipSerializer, CommentSerializer
+from .models import Community, CommunityPost, FavRecipe, Membership, Comment
+from .serializers import CommunitySerializer, CommunityPostSerializer, FavRecipeSerializer, MembershipSerializer, CommentSerializer
 from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -77,4 +79,24 @@ def post_comments(request, pk):
 
     comments = Comment.objects.filter(post=pk)
     serializer = CommentSerializer(comments, many=True)
+    return Response(serializer.data)
+
+
+@api_view(['GET', 'POST'])
+def user_favourite_recipes(request):
+    if request.method == 'POST':
+        try:
+        
+            fav_recipe = FavRecipe(recipe_id="", user=request.user)
+            fav_recipe.save()
+            return Response("Added to Favourite")
+        except IntegrityError as e:
+            error = {
+                "message" : "Already added as favourite",
+                "detail" : str(e)
+            }
+            return Response(error, status=208)
+
+    favourites = FavRecipe.objects.filter(user=request.user)
+    serializer = FavRecipeSerializer(favourites, many=True)
     return Response(serializer.data)
