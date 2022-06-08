@@ -25,6 +25,7 @@ function App() {
   return (
     <div className="App">
       <section className="controls">
+        <h1>Recipes</h1>
         <input
           type="number"
           placeholder="Calories (e.g. 2000)"
