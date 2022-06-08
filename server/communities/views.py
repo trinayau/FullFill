@@ -86,10 +86,12 @@ def post_comments(request, pk):
 def user_favourite_recipes(request):
     if request.method == 'POST':
         try:
-        
-            fav_recipe = FavRecipe(recipe_id="", user=request.user)
+            fav_recipe = FavRecipe(recipe_id=request.data['recipe_id'], user=request.user, img=request.data['img'], title=request.data['title'], category=request.data['category'])
             fav_recipe.save()
-            return Response("Added to Favourite")
+            response_body ={ 
+                "message" : "Added as favourite"
+            }
+            return Response(response_body, status=201)
         except IntegrityError as e:
             error = {
                 "message" : "Already added as favourite",

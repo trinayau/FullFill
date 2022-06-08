@@ -135,9 +135,9 @@ const handleJoin = async(e)=>{
 
 
     return (
-      <>
+      <div className="container d-flex text-center flex-column">
         {isMember ? (
-          "Welcome member"
+          <Typography variant="h6">Welcome member!</Typography>
         ) : (
           <Button onClick={handleJoin}>Join Community</Button>
         )}
@@ -155,11 +155,19 @@ const handleJoin = async(e)=>{
         </Snackbar>
         <br/>
         {/* if member is true, user can post */}
-        {isMember && (
+        
+
+        {communityTitle && communityTitle ? (
+          <div >
+            <h1>{communityTitle}</h1>
+            <h2>{communityDescription}</h2>
+            {isMember && (
+          <div className="container" style={{maxWidth:'500px', alignSelf:'center', justifyContent:'center'}}>
           <form onSubmit={handleSubmit}>
           <FormControl>
-          <FormLabel>Create a post</FormLabel>
-            <Input
+          <FormLabel sx={{fontSize:'1.2rem'}}>Create a post</FormLabel>
+            <TextField
+            variant="outlined"
               type="text"
               name="title"
               placeholder="Title"
@@ -181,15 +189,10 @@ const handleJoin = async(e)=>{
             <Button type="submit" variant="contained">Post</Button>
           </FormControl>
           </form>
+          </div>
         )}
-
-        {communityTitle && communityTitle ? (
-          <div >
-            <h1>{communityTitle}</h1>
-            <h2>{communityDescription}</h2>
-
-            <h3 className="my-2">Posts</h3>
-  
+            <Typography variant="h4" className="text-center">All Posts</Typography>
+            <div className="d-flex flex-column justify-content-center align-items-center">
             {posts.length > 0
               ? posts.slice(0).reverse().map((p, i) => {
                   return (
@@ -277,10 +280,12 @@ const handleJoin = async(e)=>{
               : "No posts"}
               
           </div>
+          </div>
         ) : (
           "nothing to see here"
         )}
-      </>
+       
+      </div>
     );
 }
  
