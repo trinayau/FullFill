@@ -11,6 +11,9 @@ pytest = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
 requests = "*"
+django-heroku = "*"
+gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
