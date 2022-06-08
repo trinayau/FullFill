@@ -49,7 +49,9 @@ const Map = ({ locationArray }) => {
                 <Marker
                   key={i}
                   position={marker.coords}
-            
+                  onClick={() => {
+                          setSelectedMarker(marker); 
+                        }}
                 />
               );
             })
