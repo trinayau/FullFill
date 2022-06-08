@@ -36,3 +36,13 @@ class Membership(models.Model):
 
     def __str__(self):
         return f'{self.user_id}'
+
+class Comment(models.Model):
+    post= models.ForeignKey(CommunityPost, related_name="comments", on_delete=models.CASCADE)
+    name=models.ForeignKey(User, on_delete=models.CASCADE)
+    username=models.CharField(max_length=50, editable=False)
+    body = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return '%s - %s' % (self.name.user_name, self.post.title)

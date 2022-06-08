@@ -41,7 +41,7 @@ const Map = ({ locationArray }) => {
         zoom={12}
         center={center}
         onLoad={(map) => setMyMap(map)}
-        onClick={(e) => console.log(e.latLng.toJSON())}
+ 
       >
         {locationArray
           ? locationArray.map((marker, i) => {
@@ -49,9 +49,7 @@ const Map = ({ locationArray }) => {
                 <Marker
                   key={i}
                   position={marker.coords}
-                  onClick={() => {
-                    setSelectedMarker(marker);
-                  }}
+            
                 />
               );
             })

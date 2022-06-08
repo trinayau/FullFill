@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://fullfill-server.herokuapp.com/api/';
+const baseURL = 'http://localhost:8000/api/';
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
