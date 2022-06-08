@@ -1,6 +1,6 @@
 from rest_framework import generics
-from .models import Community, CommunityPost, Membership
-from .serializers import CommunitySerializer, CommunityPostSerializer, MembershipSerializer
+from .models import Community, CommunityPost, Membership, Comment
+from .serializers import CommunitySerializer, CommunityPostSerializer, MembershipSerializer, CommentSerializer
 from django.contrib.auth.decorators import login_required
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -64,4 +64,20 @@ def allmemberships(request):
 def usermemberships(request, pk):
     memberships = Membership.objects.filter(user=pk)
     serializer = MembershipSerializer(memberships, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET', 'POST'])
+def post_comments(request, pk):
+    if request.method == 'POST':
+        if len(memberships) == 0:
+            comments = Comment.objects.get(id=pk)
+            post = Membership(user=request.user, community=community, member_role='Member')
+            member.save()
+            return Response({'message': f'You are now member of {community.title}'})
+        else:
+            
+            return Response({'message': 'You already have membership of this community'})
+
+    comments = Comment.objects.filter(post=pk)
+    serializer = CommentSerializer(comments, many=True)
     return Response(serializer.data)

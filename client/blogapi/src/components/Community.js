@@ -1,5 +1,5 @@
-import { Card, Avatar, Typography, IconButton, Snackbar, Alert, Checkbox, CardActions, Chip } from "@mui/material";
-import { Favorite, FavoriteBorder, Share, SentimentSatisfiedAltOutlined, SentimentSatisfiedAlt } from "@mui/icons-material";
+import { Card, Avatar, Typography, IconButton, Snackbar, Alert, Checkbox, CardActions, Chip, Grid, Button, Input, FormControl, FormLabel, TextField } from "@mui/material";
+import { Favorite, FavoriteBorder, Share, SentimentSatisfiedAltOutlined, SentimentSatisfiedAlt, CommentOutlined, Comment } from "@mui/icons-material";
 import dayjs from "dayjs"
 
 import React, {useState, useEffect} from "react";
@@ -19,6 +19,9 @@ const Community = () => {
     const [title, setTitle] = useState('')
     const [description, setDescription] = useState('')
     const [isMember, setIsMember] = useState(false);
+
+    const [comment, setComment] = useState([])
+    const [newComment, setNewComment] = useState('')
 //snackbar
 const [state, setState] = React.useState({
     open: false,
@@ -32,7 +35,7 @@ const [alertMessage, setAlertMessage] = useState('');
     // checks if user is member of community
     useEffect(()=>{
         async function fetchData() {
-            const response = await axiosInstance.get(`https://fullfill-server.herokuapp.com/api/communities/${id}/memberships/`);
+            const response = await axiosInstance.get(`http://localhost:8000/api/communities/${id}/memberships/`);
             if(response.data.length > 0){
                 setIsMember(true);
             }
@@ -43,7 +46,7 @@ const [alertMessage, setAlertMessage] = useState('');
     // fetches description of community
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/' + id);
+            const response = await axiosInstance.get('http://localhost:8000/api/communities/' + id);
             setCommunityTitle(response.data.title)
             setCommunityDescription(response.data.description)
         }
@@ -53,8 +56,9 @@ const [alertMessage, setAlertMessage] = useState('');
     // fetches posts of community
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/' + id + '/posts/');
+            const response = await axiosInstance.get('http://localhost:8000/api/communities/' + id + '/posts/');
             setPosts(response.data)
+            console.log(response.data, 'posts')
 
         }
     fetchData();
@@ -64,7 +68,7 @@ const [alertMessage, setAlertMessage] = useState('');
 const handleSubmit = async (e, reason) => {
     e.preventDefault();
 
-    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/posts/', {
+    const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/', {
         title: title,
         description: description,
         community: id
@@ -79,7 +83,7 @@ const handleSubmit = async (e, reason) => {
 // user joins community
 const handleJoin = async(e)=>{
     e.preventDefault();
-    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/'+id+'/memberships/', {});
+    const response = await axiosInstance.post('http://localhost:8000/api/communities/'+id+'/memberships/', {});
     setAlertMessage(response.data.message)
     setState({ open: true, vertical: 'top',
     horizontal: 'center', });
@@ -98,12 +102,48 @@ const handleJoin = async(e)=>{
     navigate(`/profile/${username}`);
   }
 
+  const handleComment = async(e, postId) => {
+    // const response = await axiosInstance.post('http://localhost:8000/api/posts/'+postId+'/comments/', {
+    //     description: 'test'
+    // });
+    // setPosts(posts.map(post => {
+    //     if(post.id === postId){
+    //         post.comments = [...post.comments, response.data]
+    //     }
+    //     return post
+    // }))
+    e.preventDefault();
+    console.log(postId)
+}
+
+  const showComment= async(e, postId) => {
+    e.preventDefault();
+    const response = await axiosInstance.get('http://localhost:8000/api/communities/posts/'+postId+'/comments/');
+    console.log(response.data)
+    setComment(response.data)
+  }
+
+  const handleLike = async (postId) => {
+    const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/' + postId + '/likes/', {});
+    setPosts(posts.map(post => {
+        if (post.id === postId) {
+            return {
+                ...post,
+                likes: post.likes + 1
+            }
+        }
+        return post;
+    }
+    ))
+}
+
+
     return (
       <>
         {isMember ? (
           "Welcome member"
         ) : (
-          <button onClick={handleJoin}>Join Community</button>
+          <Button onClick={handleJoin}>Join Community</Button>
         )}
         <Snackbar open={open} autoHideDuration={6000} onClose={handleClose} anchorOrigin={{
       vertical: "top",
@@ -117,10 +157,13 @@ const handleJoin = async(e)=>{
             {alertMessage}
           </Alert>
         </Snackbar>
+        <br/>
         {/* if member is true, user can post */}
         {isMember && (
           <form onSubmit={handleSubmit}>
-            <input
+          <FormControl>
+          <FormLabel>Create a post</FormLabel>
+            <Input
               type="text"
               name="title"
               placeholder="Title"
@@ -128,7 +171,8 @@ const handleJoin = async(e)=>{
                 setTitle(e.target.value);
               }}
             />
-            <input
+            <TextField
+            variant="outlined"
               type="text"
               name="description"
               placeholder="Description"
@@ -136,17 +180,18 @@ const handleJoin = async(e)=>{
                 setDescription(e.target.value);
               }}
             />
-            <input type="submit" value="submit" />
+            <Button type="submit" variant="contained">Post</Button>
+          </FormControl>
           </form>
         )}
 
         {communityTitle && communityTitle ? (
-          <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
+          <div >
             <h1>{communityTitle}</h1>
             <h2>{communityDescription}</h2>
 
             <h3 className="my-2">Posts</h3>
-            
+  
             {posts.length > 0
               ? posts.slice(0).reverse().map((p, i) => {
                   return (
@@ -154,26 +199,26 @@ const handleJoin = async(e)=>{
                       key={i}
                       id={p.id}
                       sx={{
-                        marginBottom: "15px",
+                        m: "15px",
                         p: "15px",
-                        width:'375px',
-                        alignSelf:"center",
+                        minWidth:'325px',
+                        maxWidth:'500px'
                       }}
                     >
-                      <IconButton>
+                      <IconButton onClick={e=> handleClick(p.creator.user_name)}>
                         <Avatar
                           alt={p.creator.user_name}
                           src="/static/images/avatar/2.jpg"
                           sx={{ backgroundColor: getRandomColour() }}
                         />
-                        <Typography variant="h6" noWrap sx={{ ml: 2 }} onClick={e=> handleClick(p.creator.user_name)}>
+                        <Typography variant="h6" noWrap sx={{ ml: 2, textAlign:'left' }} >
                           {p.creator.user_name}
                         </Typography>
+                       
                       </IconButton>
-                      <h4>{p.title}</h4>
-                      <p>{p.description}</p>
-
-                    <Chip label={"Posted "+dayjs(p.created_at).format('DD/MM/YYYY')}/>
+                      <Chip label={"Posted "+dayjs(p.created_at).format('DD/MM/YYYY')} sx={{ alignItem:"right", mr:0}}/>
+                      <h4 style={{textAlign:"left"}}>{p.title}</h4>
+                      <p style={{textAlign:"left"}}>{p.description}</p>
                       <CardActions disableSpacing>
           <IconButton aria-label="add to favorites">
           <Checkbox icon={<FavoriteBorder />} checkedIcon={<Favorite sx={{color:"red"}} />} />
@@ -181,11 +226,55 @@ const handleJoin = async(e)=>{
           <IconButton aria-label="share">
             <Checkbox icon ={<SentimentSatisfiedAltOutlined />} checkedIcon={<SentimentSatisfiedAlt sx={{color:"blue"}} />} />
           </IconButton>
-          
+          <IconButton aria-label="add-comment">
+            <Checkbox icon ={<CommentOutlined />} checkedIcon={<Comment sx={{color:"green"}} />} onClick={(e) => showComment(e, p.id)}/>
+          </IconButton>
+          <form onSubmit={(e) => handleComment(e, p.id)}>
+            <FormControl>
+                <TextField sx={{mt:5}} type="text" variant="outlined" placeholder="Add a comment" value={newComment} onChange={(e) => setNewComment(e.target.value)} />
+                <Button type="submit">Add comment</Button>
+            </FormControl>
+            </form>          
         </CardActions>
-                    </Card>
+          <div style={{display: 'block'}}>
+          {comment.length > 0 && comment.map((c, i) => {
+            return (
+              <div key={i}>
+                <Card
+                  key={i}
+                  id={c.id}
+                  sx={{
+                    m: "15px",
+                    p: "15px",
+                    minWidth:'325px',
+                    maxWidth:'500px'
+                  }}
+                >
+                  <IconButton onClick={e=> handleClick(c.creator.user_name)}>
+                    <Avatar
+                      src="/static/images/avatar/2.jpg"
+                      sx={{ backgroundColor: getRandomColour() }}
+                    />
+                    <Typography variant="h6" noWrap sx={{ ml: 2, textAlign:'left' }} >
+                      {c.username}
+                    </Typography>
+                   
+                  </IconButton>
+                  <Chip label={"Commented "+dayjs(c.created_at).format('DD/MM/YYYY')} sx={{ alignItem:"right", mr:0}}/>
+                  <Typography variant="h6" style={{textAlign:"left"}}>{c.body}</Typography>
+                </Card>
+              </div>
+            )
+          }
+          )}
+
+          </div>
+          </Card>
+                    
                   );
+                  
                 })
+                
               : "No posts"}
               
           </div>
