@@ -105,3 +105,12 @@
   height:450px;
   text-align: center;
 } */
+
+button:focus{
+  outline: none;
+}
+
+a:hover{
+  text-decoration: none;
+  color: var(--olive-green)
+}

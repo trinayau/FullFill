@@ -49,7 +49,7 @@ const Login = () => {
         setUser(jwt_decode(res.data.access))
 				axiosInstance.defaults.headers['Authorization'] =
 					'JWT ' + localStorage.getItem('access_token');
-				navigate('/profile');
+				navigate('/profile?redirect=true');
 				// console.log(res);
 				// console.log(res.data);
 			});
