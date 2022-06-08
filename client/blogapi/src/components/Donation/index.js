@@ -76,7 +76,7 @@ const Donation = () => {
         you are in need of:
       </p>
 
-      <form onSubmit={handleSubmit}>
+      <form role="donationForm" onSubmit={handleSubmit}>
         <input type="text" onChange={handleInput} value={inputValue}></input>
 
         <button type="submit">Search</button>

@@ -21,8 +21,11 @@ const Homepage = () => {
             <br/>
           </div>
           </Col>
+
           <Col xl={6}> <div className="container-1-text">
-            <img className="img-fluid"
+
+         
+            <img role='homePageImg' className="img-fluid"
               src="https://images.pexels.com/photos/6995215/pexels-photo-6995215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"/>
               </div>
               </Col>

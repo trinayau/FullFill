@@ -111,7 +111,8 @@ const Locator = () => {
       </p>
       <p>You can contact your local food bank using the map below.</p>
 
-      <form onSubmit={handleSubmit}>
+
+      <form role='locatorForm' onSubmit={handleSubmit}>
         <input
           type="text"
           onChange={handleInput}
@@ -121,6 +122,7 @@ const Locator = () => {
         <button className="submitBtn" type="submit">
           Search
         </button>
+
         <br />
         <br />
         <h5>Foodbanks near {submitValue}:</h5>

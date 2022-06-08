@@ -1,8 +1,11 @@
 import React from "react";
-import { Recipes } from "../../components";
-
+import { Meal, MealList, Recipes } from "../../components";
 const RegisterPage = () => {
-  return <Recipes />;
+  return (
+    <div>
+      <Recipes />
+    </div>
+  );
 };
 
 export default RegisterPage;
