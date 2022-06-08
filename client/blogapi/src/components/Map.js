@@ -25,11 +25,11 @@ const Map = ({locationArray}) => {
         <>
           <GoogleMap
             mapContainerStyle={{
-              height: "50vh",
+              height: "100%",
               width: "50vw",
               margin: "20px",
             }}
-            zoom={12}
+            zoom={13}
             center={center}
             onLoad={map => setMyMap(map)}
             onClick={(e)=> console.log(e.latLng.toJSON())}

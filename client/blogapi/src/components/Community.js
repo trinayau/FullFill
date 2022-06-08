@@ -141,11 +141,12 @@ const handleJoin = async(e)=>{
         )}
 
         {communityTitle && communityTitle ? (
-          <div>
+          <div style={{ display:'flex', flexDirection:'column', justifyContent:'center' }}>
             <h1>{communityTitle}</h1>
             <h2>{communityDescription}</h2>
 
             <h3 className="my-2">Posts</h3>
+            
             {posts.length > 0
               ? posts.slice(0).reverse().map((p, i) => {
                   return (
@@ -155,7 +156,8 @@ const handleJoin = async(e)=>{
                       sx={{
                         marginBottom: "15px",
                         p: "15px",
-                        maxWidth: "700px",
+                        width:'375px',
+                        alignSelf:"center",
                       }}
                     >
                       <IconButton>
@@ -185,6 +187,7 @@ const handleJoin = async(e)=>{
                   );
                 })
               : "No posts"}
+              
           </div>
         ) : (
           "nothing to see here"
