@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'http://127.0.0.1:8000/api/';
+const baseURL = 'https://fullfill-server.herokuapp.com/api/';
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
@@ -14,10 +14,10 @@ const axiosInstance = axios.create({
     },
 });
 
-axiosInstance.interceptors.request.use(async req=>{
-	console.log('Interceptor req ran')
-	return req
-})
+// axiosInstance.interceptors.request.use(async req=>{
+// 	console.log('Interceptor req ran')
+// 	return req
+// })
 
 // axios interceptors- intercept and perform an action
 // intercept that we logout, or token needs refreshing

@@ -43,7 +43,7 @@ const Homepage = () => {
           </Col>
          
           <Col xl={4}><div className="container-1-home">
-            <img
+            <img className="img-fluid"
               src="https://images.pexels.com/photos/6995215/pexels-photo-6995215.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
               alt="woman-packing"
             />
@@ -62,7 +62,7 @@ const Homepage = () => {
 
     <Col>
       <Card>
-        <Card.Img variant="top" src="https://media.istockphoto.com/photos/uncooked-white-longgrain-rice-background-picture-id1069180776?k=20&m=1069180776&s=612x612&w=0&h=LBnQVWSsP9QM6r0_d7sW1_7laiNfnhbyX2hBHpyxEYE=" />
+        <Card.Img className="img-fluid" variant="top" src="https://media.istockphoto.com/photos/uncooked-white-longgrain-rice-background-picture-id1069180776?k=20&m=1069180776&s=612x612&w=0&h=LBnQVWSsP9QM6r0_d7sW1_7laiNfnhbyX2hBHpyxEYE=" />
         <Card.Body>
           <Card.Title><strong>Rice</strong></Card.Title>
         </Card.Body>

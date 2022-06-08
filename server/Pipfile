@@ -10,7 +10,13 @@ coverage = "*"
 pytest = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
+<<<<<<< HEAD
 requests = "*"
+=======
+django-heroku = "*"
+gunicorn = "*"
+psycopg2 = "*"
+>>>>>>> 7b53f967f9e0d428e4087089b44fba2d45fe7f1a
 
 [dev-packages]
 

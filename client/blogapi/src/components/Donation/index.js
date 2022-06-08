@@ -16,7 +16,6 @@ const Donation = () => {
           `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${searchString}`
         );
         setLocationData(result.data);
-        console.log(result.data);
       } catch (err) {
         console.log(err);
       }
@@ -54,7 +53,6 @@ const Donation = () => {
   const handleInput = (e) => {
     const newValue = e.target.value;
     setInputValue(newValue);
-    console.log(inputValue);
   };
 
   const handleSubmit = (e) => {
@@ -81,7 +79,7 @@ const Donation = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={handleInput} value={inputValue}></input>
 
-        <button type="submit">Sumbit</button>
+        <button type="submit">Search</button>
         <br />
         <br />
         <h3>Foodbanks near {submitValue}:</h3>
