@@ -58,7 +58,6 @@ const [alertMessage, setAlertMessage] = useState('');
         async function fetchData() {
             const response = await axiosInstance.get('http://localhost:8000/api/communities/' + id + '/posts/');
             setPosts(response.data)
-            console.log(response.data, 'posts')
 
         }
     fetchData();
@@ -103,23 +102,19 @@ const handleJoin = async(e)=>{
   }
 
   const handleComment = async(e, postId) => {
-    // const response = await axiosInstance.post('http://localhost:8000/api/posts/'+postId+'/comments/', {
-    //     description: 'test'
-    // });
-    // setPosts(posts.map(post => {
-    //     if(post.id === postId){
-    //         post.comments = [...post.comments, response.data]
-    //     }
-    //     return post
-    // }))
     e.preventDefault();
-    console.log(postId)
+    const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/'+postId+'/comments/', {
+        comment: newComment
+    });
+    setComment([...comment, response.data])
+    setAlertMessage('Your comment has been added!')
+    setState({ open: true, vertical: 'top',
+    horizontal: 'center', });
 }
-
+// get comments
   const showComment= async(e, postId) => {
     e.preventDefault();
     const response = await axiosInstance.get('http://localhost:8000/api/communities/posts/'+postId+'/comments/');
-    console.log(response.data)
     setComment(response.data)
   }
 
@@ -170,6 +165,7 @@ const handleJoin = async(e)=>{
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
+              required
             />
             <TextField
             variant="outlined"
@@ -179,6 +175,7 @@ const handleJoin = async(e)=>{
               onChange={(e) => {
                 setDescription(e.target.value);
               }}
+              required
             />
             <Button type="submit" variant="contained">Post</Button>
           </FormControl>
@@ -209,7 +206,7 @@ const handleJoin = async(e)=>{
                         <Avatar
                           alt={p.creator.user_name}
                           src="/static/images/avatar/2.jpg"
-                          sx={{ backgroundColor: getRandomColour() }}
+                          sx={{ backgroundColor: 'pink'}}
                         />
                         <Typography variant="h6" noWrap sx={{ ml: 2, textAlign:'left' }} >
                           {p.creator.user_name}
@@ -237,7 +234,8 @@ const handleJoin = async(e)=>{
             </form>          
         </CardActions>
           <div style={{display: 'block'}}>
-          {comment.length > 0 && comment.map((c, i) => {
+          {comment.length > 0 && comment.slice(0).reverse().map((c, i) => {
+            if(c.post === p.id){
             return (
               <div key={i}>
                 <Card
@@ -246,14 +244,13 @@ const handleJoin = async(e)=>{
                   sx={{
                     m: "15px",
                     p: "15px",
-                    minWidth:'325px',
-                    maxWidth:'500px'
                   }}
                 >
-                  <IconButton onClick={e=> handleClick(c.creator.user_name)}>
+                  <IconButton style={{textAlign:'left'}} onClick={e=> handleClick(c.username)}>
                     <Avatar
+                      alt={c.username}
                       src="/static/images/avatar/2.jpg"
-                      sx={{ backgroundColor: getRandomColour() }}
+                      sx={{ backgroundColor: 'green' }}
                     />
                     <Typography variant="h6" noWrap sx={{ ml: 2, textAlign:'left' }} >
                       {c.username}
@@ -261,10 +258,11 @@ const handleJoin = async(e)=>{
                    
                   </IconButton>
                   <Chip label={"Commented "+dayjs(c.created_at).format('DD/MM/YYYY')} sx={{ alignItem:"right", mr:0}}/>
-                  <Typography variant="h6" style={{textAlign:"left"}}>{c.body}</Typography>
+                  <p style={{textAlign:"left"}}>{c.body}</p>
                 </Card>
               </div>
             )
+          }
           }
           )}
 

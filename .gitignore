@@ -91,5 +91,3 @@ docs/_build/
 
 # Local Netlify folder
 .netlify
-
-Pipfile.lock
