@@ -1,5 +1,5 @@
 import React from "react";
-import { Meal, MealList, Recipes } from "../../components";
+import { Recipes } from "../../components";
 const RegisterPage = () => {
   return (
     <div>

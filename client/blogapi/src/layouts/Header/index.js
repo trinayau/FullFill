@@ -25,7 +25,7 @@ function Header() {
 
   const navigate = useNavigate();
 
-  let {user} = useContext(AuthContext)
+  let { user } = useContext(AuthContext);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -48,9 +48,8 @@ function Header() {
     navigate(link);
   };
 
-
   return (
-    <AppBar elevation={0} position="static" sx={{ backgroundColor: "white"}}>
+    <AppBar elevation={0} position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* only displays if above medium breakpoint */}
@@ -163,79 +162,100 @@ function Header() {
             </Button>
             <Button
               onClick={(e) => {
+                handleLink("/recipes");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Recipes
+            </Button>
+            <Button
+              onClick={(e) => {
                 handleLink("/communities");
               }}
               sx={{ my: 2, color: "black", display: "block" }}
             >
               Community
             </Button>
-            {user? 
-            <Button
-              onClick={(e) => {
-                handleLink("/logout");
-              }}
-              sx={{ my: 2, color: "black", display: "block" }}
-            >
-              Logout
-            </Button>
-            :
-            <>
-            <Button
-              onClick={(e) => {
-                handleLink("/Login");
-              }}
-              sx={{ my: 2, color: "black", display: "block" }}
-            >
-              Login
-            </Button>
-            <Button
+            {user ? (
+              <Button
                 onClick={(e) => {
-                  handleLink("/register");
+                  handleLink("/logout");
                 }}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
-                Register
+                Logout
               </Button>
+            ) : (
+              <>
+                <Button
+                  onClick={(e) => {
+                    handleLink("/Login");
+                  }}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  Login
+                </Button>
+                <Button
+                  onClick={(e) => {
+                    handleLink("/register");
+                  }}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  Register
+                </Button>
               </>
-            }
-            <nav>
-              
-              
-            </nav>
+            )}
+            <nav></nav>
           </Box>
-          {user?
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user?user.username:'User'} src="/static/images/avatar/2.jpg" sx={{backgroundColor:"#adc178"}}/>
-                <Typography variant="h6" noWrap sx={{ml: 2}}>Hi {user? user.username:null}</Typography>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-            <MenuItem key="Profile" onClick={(e)=>{handleLink('/profile')}}>
+          {user ? (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar
+                    alt={user ? user.username : "User"}
+                    src="/static/images/avatar/2.jpg"
+                    sx={{ backgroundColor: "#adc178" }}
+                  />
+                  <Typography variant="h6" noWrap sx={{ ml: 2 }}>
+                    Hi {user ? user.username : null}
+                  </Typography>
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem
+                  key="Profile"
+                  onClick={(e) => {
+                    handleLink("/profile");
+                  }}
+                >
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-                <MenuItem key="Logout" onClick={(e)=>{handleLink('/logout')}}>
+                <MenuItem
+                  key="Logout"
+                  onClick={(e) => {
+                    handleLink("/logout");
+                  }}
+                >
                   <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
-            </Menu>
-          </Box>
-        :null}
+              </Menu>
+            </Box>
+          ) : null}
         </Toolbar>
       </Container>
     </AppBar>
