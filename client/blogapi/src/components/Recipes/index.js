@@ -15,7 +15,6 @@ function Recipes() {
     const url = apiUrl + searchQuery;
     const response = await fetch(url);
     const data = await response.json();
-    // console.log(data);
     setRecipes(data.meals);
     setIsLoading(false);
   };

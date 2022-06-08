@@ -48,6 +48,8 @@ function Header() {
     navigate(link);
   };
 
+  const pages = ['community', 'recipe', 'profile'];
+
   return (
     <AppBar elevation={0} position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
@@ -63,7 +65,7 @@ function Header() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={() => handleLink("/")}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -87,7 +89,7 @@ function Header() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon style={{color: 'black'}}/>
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -107,11 +109,18 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key='Locator' onClick={()=>{handleLink('/locator')}}>
+                  <Typography textAlign="center">Locator</Typography>
                 </MenuItem>
-              ))} */}
+                <MenuItem key='Donation' onClick={()=>{handleLink('/donation')}}>
+                  <Typography textAlign="center">Donation</Typography>
+                </MenuItem>
+                <MenuItem key='Recipes' onClick={()=>{handleLink('/recipes')}}>
+                  <Typography textAlign="center">Recipes</Typography>
+                </MenuItem>
+                <MenuItem key='Community' onClick={()=>{handleLink('/communities')}}>
+                  <Typography textAlign="center">Community</Typography>
+                </MenuItem>
             </Menu>
           </Box>
           {/* Only displays for mobile */}
@@ -120,14 +129,13 @@ function Header() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               fontFamily: "Pacifico",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "black",
               textDecoration: "none",
             }}

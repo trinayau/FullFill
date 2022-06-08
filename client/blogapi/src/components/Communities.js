@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axiosInstance from '../utils/axios';
 import AuthContext from "../context/AuthContext";
-import { Button } from '@mui/material';
+import { Button, Card } from '@mui/material';
  const Communities = () => {
 
     const [communities, setCommunities] = useState(null)
@@ -49,12 +49,13 @@ import { Button } from '@mui/material';
     <h1>All Communities</h1>
     {communities && communities.slice(0).reverse().map((c, i)=> {
             return (
-                <div key={i} style={{margin:"15px"}} id={c.id}>
+                <Card key={i} style={{margin:"15px", padding:"20px"}} id={c.id}>
                     <h3>{c.title}</h3>
                     <h5>{c.description}</h5>
                     <p>{c.location}</p>
-                    {user? <a href={`/communities/`+ c.id}><Button variant='contained'>Go to Community</Button></a>:null}
-                </div>
+                    {user? <a href={`/communities/`+ c.id}>
+                    <Button variant='contained' sx={{backgroundColor:'#EF645E'}}>Go to Community</Button></a>:null}
+                </Card>
             )
     })}
     </div>
