@@ -64,6 +64,8 @@ ol li {
 }
 .container-2-h2{
   width:100%;
+  font-size: 40px;
+  font-weight: 700;
 
 }
 .locateBtn{
@@ -79,6 +81,7 @@ ol li {
 
 .card{
   border: 0;
+  align-items: center;
 }
 
 
@@ -97,8 +100,10 @@ ol li {
  }
 
  .card3{
-   height: 300px;
-   width:500px;
+   height: 100%;
+   width:auto;
+   background-color: #FFE8BA;
+   padding-right: 25%;
  }
 
  .card3 img{
@@ -108,20 +113,59 @@ ol li {
   padding-top: 40px;
   padding-bottom: 40px;
 }
-.container-three img {
+.container-card3-1 img {
+  margin-left: 10%;
+  width: 100%;
+  height:auto;
+  align-items: right;  
+  display: block;
+ 
+}
+.container-card3-1{
+  width:100%; 
+  height:auto;
+  align-items: left; 
+  
+  display: block;
+}
+
+.container-card3-2 h2 {
+ font-weight:100;
+}
+
+.container-card3-2 {
+  height:100%;
+  text-align: right;
+  padding-left:25%;
+  padding-right:25%;
+  padding-top:25%;
+  width:auto;
+  display: block;
+
+  /* margin-top: 50px;
   margin-left: 50px;
   width: 500px;
   height:450px;
-}
-
-.container-four h2 {
-  font-size: 40px;
-}
-
-.container-four {
-  margin-top: 50px;
-  margin-left: 50px;
-  width: 500px;
-  height:450px;
-  text-align: center;
+  text-align: center; */
+  
 } 
+
+.container-card3-2 button{
+  background-color: var(--light-salmon);
+  border-radius: 10px;
+  padding: 20px;
+  border: none;
+  font-weight: 600;
+
+
+  /* margin-top: 50px;
+  margin-left: 50px;
+  width: 500px;
+  height:450px;
+  text-align: center; */
+  
+} 
+.container-card2{
+  width:100%;
+  height:auto;
+}
