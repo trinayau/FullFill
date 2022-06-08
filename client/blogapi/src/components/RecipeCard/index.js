@@ -32,7 +32,7 @@ const RecipeCard = ({ recipe }) => {
       const handleFavorite = async(e) => {
         e.preventDefault()
         console.log(strMeal, strMealThumb)
-        const response = await axiosInstance.post('http://localhost:8000/api/communities/recipes/favourites/', {
+        const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/recipes/favourites/', {
           recipe_id: idMeal,
           img: strMealThumb,
           title: strMeal,

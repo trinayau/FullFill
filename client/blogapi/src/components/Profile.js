@@ -29,7 +29,7 @@ const Profile = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('http://localhost:8000/api/communities/mycommunities');
+            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/mycommunities');
             setCommunities(response.data)
         }
         fetchData();
@@ -38,7 +38,7 @@ const Profile = () => {
 // get recipes
     useEffect(() => {
       async function fetchData() {
-          const response = await axiosInstance.get('http://localhost:8000/api/communities/recipes/favourites/');
+          const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/recipes/favourites/');
           setRecipes(response.data)
       }
       fetchData();
