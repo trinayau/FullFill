@@ -1,41 +1,54 @@
-import React, { useState } from "react";
-import MealList from "../MealList";
+import { useState, useEffect } from "react";
+import "./Recipes.css";
+import SearchBar from "../RecipeSearchBar";
+import RecipeCard from "../RecipeCard";
 
-function App() {
-  const [mealData, setMealData] = useState(null);
-  const [calories, setCalories] = useState(2000);
+const apiUrl = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
 
-  function getMealData() {
-    fetch(
-      `https://api.spoonacular.com/mealplanner/generate?apiKey=fd6746bcbe074d678f49571ae82b2c27&timeFrame=day&targetCalories=${calories}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        setMealData(data);
-      })
-      .catch(() => {
-        console.log("error");
-      });
-  }
+function Recipes() {
+  const [isLoading, setIsLoading] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("chicken");
+  const [recipes, setRecipes] = useState([]);
 
-  function handleChange(e) {
-    setCalories(e.target.value);
-  }
+  const searchRecipes = async () => {
+    setIsLoading(true);
+    const url = apiUrl + searchQuery;
+    const response = await fetch(url);
+    const data = await response.json();
+    // console.log(data);
+    setRecipes(data.meals);
+    setIsLoading(false);
+  };
+
+  useEffect(() => {
+    searchRecipes();
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    searchRecipes();
+  };
 
   return (
-    <div className="App">
-      <section className="controls">
-        <h1>Recipes</h1>
-        <input
-          type="number"
-          placeholder="Calories (e.g. 2000)"
-          onChange={handleChange}
-        />
-        <button onClick={getMealData}>Get Daily Meal Plan</button>
-      </section>
-      {mealData && <MealList mealData={mealData} />}
+    <div className="recipes-container">
+      <br />
+      <h2 className="recipes-h2">Recipe Finder</h2>
+      <p>Enter the ingredients you want, and we'll find recipes for you!</p>
+      <SearchBar
+        handleSubmit={handleSubmit}
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        isLoading={isLoading}
+      />
+      <div className="recipes">
+        {recipes
+          ? recipes.map((recipe) => (
+              <RecipeCard key={recipe.idMeal} recipe={recipe} />
+            ))
+          : "No Results."}
+      </div>
     </div>
   );
 }
 
-export default App;
+export default Recipes;
