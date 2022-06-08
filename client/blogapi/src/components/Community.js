@@ -35,7 +35,7 @@ const [alertMessage, setAlertMessage] = useState('');
     // checks if user is member of community
     useEffect(()=>{
         async function fetchData() {
-            const response = await axiosInstance.get(`http://localhost:8000/api/communities/${id}/memberships/`);
+            const response = await axiosInstance.get(`https://fullfill-server.herokuapp.com/api/communities/${id}/memberships/`);
             if(response.data.length > 0){
                 setIsMember(true);
             }
@@ -46,7 +46,7 @@ const [alertMessage, setAlertMessage] = useState('');
     // fetches description of community
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('http://localhost:8000/api/communities/' + id);
+            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/' + id);
             setCommunityTitle(response.data.title)
             setCommunityDescription(response.data.description)
         }
@@ -56,7 +56,7 @@ const [alertMessage, setAlertMessage] = useState('');
     // fetches posts of community
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('http://localhost:8000/api/communities/' + id + '/posts/');
+            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/' + id + '/posts/');
             setPosts(response.data)
 
         }
@@ -67,7 +67,7 @@ const [alertMessage, setAlertMessage] = useState('');
 const handleSubmit = async (e, reason) => {
     e.preventDefault();
 
-    const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/', {
+    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/posts/', {
         title: title,
         description: description,
         community: id
@@ -82,7 +82,7 @@ const handleSubmit = async (e, reason) => {
 // user joins community
 const handleJoin = async(e)=>{
     e.preventDefault();
-    const response = await axiosInstance.post('http://localhost:8000/api/communities/'+id+'/memberships/', {});
+    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/'+id+'/memberships/', {});
     setAlertMessage(response.data.message)
     setState({ open: true, vertical: 'top',
     horizontal: 'center', });
@@ -103,7 +103,7 @@ const handleJoin = async(e)=>{
 
   const handleComment = async(e, postId) => {
     e.preventDefault();
-    const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/'+postId+'/comments/', {
+    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/posts/'+postId+'/comments/', {
         comment: newComment
     });
     showComment(e, postId)
@@ -115,12 +115,12 @@ const handleJoin = async(e)=>{
 // get comments
   const showComment= async(e, postId) => {
     e.preventDefault();
-    const response = await axiosInstance.get('http://localhost:8000/api/communities/posts/'+postId+'/comments/');
+    const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/posts/'+postId+'/comments/');
     setComment(response.data)
   }
 
   const handleLike = async (postId) => {
-    const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/' + postId + '/likes/', {});
+    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/posts/' + postId + '/likes/', {});
     setPosts(posts.map(post => {
         if (post.id === postId) {
             return {
