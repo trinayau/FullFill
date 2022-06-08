@@ -14,7 +14,6 @@ const ModalCard = () => {
           `https://www.givefood.org.uk/api/2/foodbanks/search/?address=${searchString}`
         );
         setLocationData(result.data);
-        console.log(result.data);
       } catch (err) {
         console.log(err);
       }

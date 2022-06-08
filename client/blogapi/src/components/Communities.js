@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from 'react'
 import axiosInstance from '../utils/axios';
 import AuthContext from "../context/AuthContext";
+import { Button } from '@mui/material';
  const Communities = () => {
 
     const [communities, setCommunities] = useState(null)
@@ -13,8 +14,7 @@ import AuthContext from "../context/AuthContext";
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('http://localhost:8000/api/communities/');
-            console.log(response.data)
+            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/');
             setCommunities(response.data)
         }
         fetchData();
@@ -23,7 +23,7 @@ import AuthContext from "../context/AuthContext";
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await axiosInstance.post('http://localhost:8000/api/communities/', {
+        const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/', {
             title: title,
             description: description,
             location: location
@@ -34,22 +34,26 @@ import AuthContext from "../context/AuthContext";
 
   return (
     <div>
-    Make a new community:<br/>
-    {/* I forgot how to do react forms so change if wrong :) */}
+    
+    {user ? 
+    <div>
+    <h3>Make a new community:</h3><br/>
     <form onSubmit={handleSubmit}>
         <input type="text" name="title" placeholder="Name" onChange={(e)=>{setTitle(e.target.value)}}/>
         <input type="text" name="description" placeholder="Description" onChange={(e)=>{setDescription(e.target.value)}}/>
         <input type="text" name="Location" placeholder="Location" onChange={(e)=>{setLocation(e.target.value)}} />
         <input type="submit" value="submit"/>
     </form>
+    </div>: "Signup or login to make a new community or join one!"
+    }
     <h1>All Communities</h1>
-    {communities && communities.map((c, i)=> {
+    {communities && communities.slice(0).reverse().map((c, i)=> {
             return (
                 <div key={i} style={{margin:"15px"}} id={c.id}>
-                    <h1>{c.title}</h1>
-                    <h2>{c.description}</h2>
-                    <h3>{c.location}</h3>
-                    {user? <a href={`/communities/`+ c.id}><button>Go to Community</button></a>:null}
+                    <h3>{c.title}</h3>
+                    <h5>{c.description}</h5>
+                    <p>{c.location}</p>
+                    {user? <a href={`/communities/`+ c.id}><Button variant='contained'>Go to Community</Button></a>:null}
                 </div>
             )
     })}

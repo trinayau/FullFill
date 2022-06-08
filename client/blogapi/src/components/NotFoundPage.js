@@ -1,6 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "./err404.css";
+import image from './err_404.png'
 
 
 

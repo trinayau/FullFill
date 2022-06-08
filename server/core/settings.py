@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+import django_heroku
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -156,9 +158,9 @@ AUTH_USER_MODEL =  "users.NewUser"
 # Blacklist- can blacklist keys 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(days=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=90),
-    'ROTATE_REFRESH_TOKENS': True,
+    'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': True,
     'UPDATE_LAST_LOGIN': False,
 
@@ -186,3 +188,10 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_LIFETIME': timedelta(minutes=5),
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
+<<<<<<< HEAD
+
+ACTIVE_CAMPAIGN_URL = 'https://kellyalfie6.api-us1.com'
+ACTIVE_CAMPAIGN_KEY = 'ae468bdc7308a058e8e33c610d7453196145410d7d7dff5dd251f6cbcd421eb108c02c7d'
+=======
+django_heroku.settings(locals())
+>>>>>>> 7b53f967f9e0d428e4087089b44fba2d45fe7f1a

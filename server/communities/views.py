@@ -54,3 +54,14 @@ def memberships(request, pk):
     
     serializer = MembershipSerializer(memberships, many=True)
     return Response(serializer.data)
+@api_view(['GET'])
+def allmemberships(request):
+    memberships = Membership.objects.all()
+    serializer = MembershipSerializer(memberships, many=True)
+    return Response(serializer.data)
+
+@api_view(['GET'])
+def usermemberships(request, pk):
+    memberships = Membership.objects.filter(user=pk)
+    serializer = MembershipSerializer(memberships, many=True)
+    return Response(serializer.data)

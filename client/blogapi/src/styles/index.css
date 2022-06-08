@@ -168,4 +168,14 @@ ol li {
 .container-card2{
   width:100%;
   height:auto;
+  text-align: center;
+} */
+
+button:focus{
+  outline: none;
+}
+
+a:hover{
+  text-decoration: none;
+  color: var(--olive-green)
 }
