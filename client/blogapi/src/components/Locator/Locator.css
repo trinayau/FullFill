@@ -1,9 +1,15 @@
 @import "../../styles/variables.css";
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap");
 
 body {
   text-align: center;
+  background-color: var(--background);
 }
 
+.header {
+  font-size: 30px;
+  font-weight: 600;
+}
 ol {
   display: flex;
   flex-direction: column;
@@ -13,7 +19,46 @@ ol li {
   list-style-type: none;
 }
 
-.locator-card {
+.info-card {
   text-align: left;
   background-color: var(--light-salmon);
+  border-radius: 10px;
 }
+
+.locator-elements {
+  margin-left: 55px;
+}
+
+.locator-elements .locations-scroll {
+  background-color: salmon;
+  margin: 0 auto 0px;
+  width: 1500px;
+}
+
+.locations-scroll {
+  height: 800px;
+  overflow-y: scroll;
+  width: 20px;
+}
+
+input {
+  background-color: var(--vanilla);
+  height: 55px;
+  width: 400px;
+  border: none;
+  border-radius: 10px;
+}
+
+.submitBtn {
+  background-color: var(--vanilla);
+  height: 55px;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+}
+
+/* background-color: #ffe8ba;
+border-radius: 10px;
+padding: 20px;
+border: none;
+font-weight: 600; */
