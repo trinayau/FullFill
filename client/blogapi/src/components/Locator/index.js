@@ -48,31 +48,13 @@ const Locator = () => {
   }, [submitValue]);
 
   const renderLocations = () => {
-    return locationData.map((s, i) => (
-      <li key={i} className="show-link">
-        {/* <Card sx={{ minWidth: 275 }} className="locator-card">
-          <CardContent>
-            <Typography variant="h6" component="div">
-              {s.name} Foodbank
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {s.distance_mi} miles away from {submitValue}
-            </Typography>
-            <Typography variant="body2">
-              {s.address}
-              <br />
-              <strong>Phone number:</strong> {s.phone}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <ModalCard />
-          </CardActions>
-        </Card>
-        <br /> */}
-
-        <Card className="info-card" style={{ width: "18vw" }}>
+    return (
+    locationData.map((s, i) => (
+      <div className="col-sm mx-auto pl-5">
+      <div key={i} className="show-link mx-auto">
+        <Card className="info-card text-center justify-content-center" sx={{backgroundColor: "salmon"}}>
           <Card.Body>
-            <Card.Title> {s.name} Foodbank</Card.Title>
+            <p> {s.name} Foodbank</p>
             <Card.Subtitle className="mb-2 text-muted">
               {s.distance_mi} miles away from {submitValue}
             </Card.Subtitle>
@@ -85,8 +67,10 @@ const Locator = () => {
           </Card.Body>
         </Card>
         <br />
-      </li>
-    ));
+      </div>
+      </div>
+    ))
+    )
   };
 
   const handleInput = (e) => {
@@ -129,14 +113,18 @@ const Locator = () => {
         <br />
       </form>
 
-      <Row>
-        <Col xl={7} className="locator-elements">
+      <div className="container">
+      <div className="row justify-content-center">
+        <div className="locator-elements col-md justify-content-left">
           <Map locationArray={locationArray} />
-        </Col>
-        <Col xl={3} className="locations-scroll">
-          <ol>{renderLocations()}</ol>
-        </Col>
-      </Row>
+        </div>
+        <div className="locations-scroll col-lg text-center justify-content-center align-items-center">
+        <div className="row">
+          {renderLocations()}
+          </div>
+        </div>
+        </div>
+        </div>
     </>
   );
 };

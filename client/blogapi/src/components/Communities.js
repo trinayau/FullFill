@@ -16,6 +16,7 @@ import { Button, Card } from '@mui/material';
         async function fetchData() {
             const response = await axiosInstance.get('http://localhost:8000/api/communities/');
             setCommunities(response.data)
+            console.log(response.data)
         }
         fetchData();
     }, []);
