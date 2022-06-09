@@ -4,10 +4,10 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
+
+
 activecampaign_url = settings.ACTIVE_CAMPAIGN_URL
 activecampaign_key = settings.ACTIVE_CAMPAIGN_KEY
-
-
 class newsletterSignup(APIView):
     def post(self, request, format=None):
         try:
