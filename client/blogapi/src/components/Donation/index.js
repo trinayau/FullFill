@@ -64,27 +64,36 @@ const Donation = () => {
 
   return (
     <>
-      <h1>Donate Food:</h1>
+      <h1 className="main-titles">Donate Food:</h1>
       <p>
-        {" "}
         Your food donations count and are vital to give everyone referred a food
         bank a balanced and nutritious three day supply of food.
       </p>
-      <br />
       <p>
         You can use the search box below to find the food the food banks near
         you are in need of:
       </p>
 
-      <form role="donationForm" onSubmit={handleSubmit}>
-        <input type="text" onChange={handleInput} value={inputValue}></input>
+      <form
+        role="donationForm"
+        onSubmit={handleSubmit}
+        className="search-bar-form"
+      >
+        <input
+          type="text"
+          onChange={handleInput}
+          value={inputValue}
+          className="search-form-control search-input"
+        ></input>
 
-        <button type="submit">Search</button>
-        <br />
-        <br />
-        <h3>Foodbanks near {submitValue}:</h3>
+        <button type="submit" className="search-btn">
+          Search
+        </button>
         <br />
       </form>
+      <br />
+      <h5>Foodbanks near {submitValue}:</h5>
+      <br />
       <ol>{renderLocations()}</ol>
     </>
   );
