@@ -5,7 +5,7 @@ from users.serializers import CustomUserSerializer
 class CommunitySerializer(serializers.ModelSerializer):
     class Meta:
         model = Community
-        fields = ('id', 'title', 'description', 'creator')
+        fields = ('__all__')
     def create(self, validated_data):
         instance = Community(**validated_data)
         instance.creator = self.context['request'].user

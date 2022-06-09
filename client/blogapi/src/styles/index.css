@@ -52,8 +52,6 @@
 }
 
 
-
-
 .locateBtn {
   background-color: #ffe8ba;
   border-radius: 10px;
@@ -66,14 +64,14 @@
 
 }
 
-.card {
+/* .card {
   border: 0;
   width: 10rem;
   height: 10rem;
   column-gap: 0.1em;
   margin-bottom: 10rem;
   
-}
+} */
 
 
 
@@ -99,7 +97,7 @@
 
 }
 
-
+/* applies to all elements, do not change */
 button:focus{
 
   outline: none;

@@ -16,6 +16,7 @@ import { Button, Card } from '@mui/material';
         async function fetchData() {
             const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/');
             setCommunities(response.data)
+            console.log(response.data)
         }
         fetchData();
     }, []);
