@@ -183,3 +183,11 @@ a:hover {
   /* padding-left:20% ; */
   /* width: 100%; */
 }
+
+.card{
+  border:none;
+}
+
+li, ol{
+  list-style-type: none;
+}
