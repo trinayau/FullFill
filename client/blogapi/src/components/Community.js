@@ -1,12 +1,13 @@
 import { Card, Avatar, Typography, IconButton, Snackbar, Alert, Checkbox, CardActions, Chip, Grid, Button, Input, FormControl, FormLabel, TextField } from "@mui/material";
 import { Favorite, FavoriteBorder, Share, SentimentSatisfiedAltOutlined, SentimentSatisfiedAlt, CommentOutlined, Comment } from "@mui/icons-material";
 import dayjs from "dayjs"
-
-import React, {useState, useEffect} from "react";
+import AuthContext from "../context/AuthContext";
+import React, {useState, useEffect, useContext} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../utils/axios";
 
 const Community = () => {
+  const {user} = useContext(AuthContext)
     const {id} = useParams();
     const randomColours = ['#FFCC60', '#FFAB5F', '#A5BC79', '#F0CCCC', '#78B591', '#EF645E', '#F9EBCF']
     const getRandomColour = () => {
@@ -14,6 +15,7 @@ const Community = () => {
     }
     const [communityTitle, setCommunityTitle] = useState(null);
     const [communityDescription, setCommunityDescription] = useState('');
+    const [communityLocation, setCommunityLocation] = useState('');
     const [posts, setPosts] = useState('');
 
     const [title, setTitle] = useState('')
@@ -49,6 +51,7 @@ const [alertMessage, setAlertMessage] = useState('');
             const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/' + id);
             setCommunityTitle(response.data.title)
             setCommunityDescription(response.data.description)
+            setCommunityLocation(response.data.location)
         }
         fetchData();
     }, [id])
@@ -137,7 +140,7 @@ const handleJoin = async(e)=>{
     return (
       <div className="container d-flex text-center flex-column">
         {isMember ? (
-          <Typography variant="h6">Welcome member!</Typography>
+          <Typography variant="h6">Welcome {user.username}!</Typography>
         ) : (
           <Button onClick={handleJoin}>Join Community</Button>
         )}
@@ -161,6 +164,7 @@ const handleJoin = async(e)=>{
           <div >
             <h1>{communityTitle}</h1>
             <h2>{communityDescription}</h2>
+            <h3>{communityLocation}</h3>
             {isMember && (
           <div className="container" style={{maxWidth:'500px', alignSelf:'center', justifyContent:'center'}}>
           <form onSubmit={handleSubmit}>
