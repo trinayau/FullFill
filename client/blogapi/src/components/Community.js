@@ -320,6 +320,8 @@ const Community = () => {
                               }
                             />
                           </IconButton>
+                          {isMember ? 
+                          <>
                           <IconButton aria-label="add-comment">
                             <Checkbox
                               icon={<CommentOutlined />}
@@ -340,6 +342,8 @@ const Community = () => {
                               <Button type="submit">Add comment</Button>
                             </FormControl>
                           </form>
+                          </>
+                          : null}
                         </CardActions>
                         <div style={{ display: "block" }}>
                           {comment.length > 0 &&
