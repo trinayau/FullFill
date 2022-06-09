@@ -1,10 +1,6 @@
 from dataclasses import field
 from rest_framework import serializers
-<<<<<<< HEAD
-from .models import Community, CommunityPost, Membership, Comment
-=======
 from .models import Community, CommunityPost, FavRecipe, Membership, Comment
->>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
 from users.serializers import CustomUserSerializer
 class CommunitySerializer(serializers.ModelSerializer):
     class Meta:
@@ -54,8 +50,6 @@ class CommentSerializer(serializers.ModelSerializer):
         instance.creator = self.context['request'].user
         instance.save()
         return instance
-<<<<<<< HEAD
-=======
 
 
 class FavRecipeSerializer(serializers.ModelSerializer):
@@ -69,4 +63,3 @@ def create(self, validated_data):
         instance.user = self.context['request'].user
         instance.save()
         return instance
->>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c

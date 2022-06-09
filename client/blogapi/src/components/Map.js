@@ -49,34 +49,13 @@ const Map = ({ locationArray }) => {
                 <Marker
                   key={i}
                   position={marker.coords}
-<<<<<<< HEAD
-            
-=======
                   onClick={() => {
                           setSelectedMarker(marker); 
                         }}
->>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
                 />
               );
             })
           : null}
-<<<<<<< HEAD
-
-        {selectedMarker && (
-          <InfoWindow
-            position={selectedMarker.coords}
-            onCloseClick={() => {
-              setSelectedMarker(null);
-            }}
-          >
-            <div>{selectedMarker.title}</div>
-          </InfoWindow>
-        )}
-      </GoogleMap>
-    </>
-  );
-
-=======
 
         {selectedMarker && (
           <InfoWindow
@@ -93,7 +72,6 @@ const Map = ({ locationArray }) => {
     </>
   );
 
->>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
   return isLoaded ? renderMap() : null;
 };
 

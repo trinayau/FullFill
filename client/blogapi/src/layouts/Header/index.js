@@ -51,7 +51,7 @@ function Header() {
   const pages = ['community', 'recipe', 'profile'];
 
   return (
-    <AppBar elevation={0} position="static" sx={{ backgroundColor: "white", height:"150px"}}>
+    <AppBar elevation={0} position="static" sx={{ backgroundColor: "white" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* only displays if above medium breakpoint */}

@@ -46,8 +46,6 @@ class Comment(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.name.user_name, self.post.title)
-<<<<<<< HEAD
-=======
 
 class FavRecipe(models.Model):
     recipe_id = models.CharField(max_length=20, null=False,blank=False, unique=True)
@@ -58,4 +56,3 @@ class FavRecipe(models.Model):
 
     def __str__(self):
         return f'{self.recipe_id}'
->>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
