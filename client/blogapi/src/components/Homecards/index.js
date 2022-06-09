@@ -47,21 +47,13 @@ const Homecards = () => {
         </Card.Body>
       </Card>
    </div>
-   <div class="col-sm">
-   <Card style={{backgroundColor:"var(--background)"}} >
-        <Card.Img variant="top" src="https://media.istockphoto.com/photos/pouring-fresh-milk-in-glass-picture-id1337307092?b=1&k=20&m=1337307092&s=170667a&w=0&h=4Ew2f0wTeZvPjqfcpA-S26-kCqYkQnYxwXv6tKFF0us=" />
-        <Card.Body>
-          <Card.Title><strong>Long Life Milk</strong></Card.Title>
-        </Card.Body>
-      </Card>
-   </div>
    </div>
    </div>
  
 {/* </div> */}
 
 <h2>Featured Communities</h2> <br/>
-  <div className="container">
+  <div className="container" style={{marginBottom:"100px"}}>
   <div className="row">
    <div className="col-sm">
       <Card style={{backgroundColor:"var(--background)"}}>
@@ -92,7 +84,7 @@ Volunteer</strong></Card.Title>
       </Card>
    </div>
    <div class="col-sm">
-   <Card style={{backgroundColor:"var(--background)"}} >
+   <Card style={{backgroundColor:"var(--background)", border:"None"}} >
         <Card.Img variant="top" src={pink} />
         <Card.Body>
         <Card.Title><strong>King's Cross<br/> Soup <br/>Kitchen</strong></Card.Title>
@@ -103,23 +95,9 @@ Volunteer</strong></Card.Title>
    </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div className="Container-card3">
+<div className="Container-card3" >
         <Row >
           <Col xl={6}><div className="container-card3-1">
-            
           <img src={nav} 
            alt="image of a person looking at navigations"/>
           </div></Col>
@@ -150,7 +128,7 @@ food poverty in the UK.</h2>
 </div>   
             </Col>
           <Col xl={4}><div className="container-card4-2">
-          <img src={salad} style={{backgroundColor:"none", borderRadius:"15px"}}alt="fruit bowl"/>
+          <img src={salad} style={{backgroundColor:"none", borderRadius:"15px", height:"150px", alignSelf:"left", paddingRight:"100px"}} className="text-left" alt="fruit bowl"/>
           </div></Col>
         </Row>
       </div>
