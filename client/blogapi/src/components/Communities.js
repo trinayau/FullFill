@@ -14,7 +14,7 @@ import { Button, Card } from '@mui/material';
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/');
+            const response = await axiosInstance.get('http://localhost:8000/api/communities/');
             setCommunities(response.data)
             console.log(response.data)
         }
@@ -24,7 +24,7 @@ import { Button, Card } from '@mui/material';
     const handleSubmit = async (e) => {
         e.preventDefault();
 
-        const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/', {
+        const response = await axiosInstance.post('http://localhost:8000/api/communities/', {
             title: title,
             description: description,
             location: location
