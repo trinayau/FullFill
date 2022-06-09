@@ -110,6 +110,19 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
+            {!user ?
+            <>
+             <MenuItem key='Login' onClick={()=>{handleLink('/login')}}>
+                  <Typography textAlign="center">Login</Typography>
+                </MenuItem>
+                <MenuItem key='Register' onClick={()=>{handleLink('/register')}}>
+                  <Typography textAlign="center">Register</Typography>
+                </MenuItem>
+                </>
+            : <MenuItem key='Logout' onClick={()=>{handleLink('/logout')}}>
+                  <Typography textAlign="center">Log Out</Typography>
+                </MenuItem>
+                }
                 <MenuItem key='Locator' onClick={()=>{handleLink('/locator')}}>
                   <Typography textAlign="center">Locator</Typography>
                 </MenuItem>
