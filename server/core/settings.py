@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
-import django_heroku
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'newsletter',
+    'django_nose',
 ]
 
 MIDDLEWARE = [
@@ -191,4 +192,9 @@ SIMPLE_JWT = {
 
 ACTIVE_CAMPAIGN_URL = 'https://kellyalfie6.api-us1.com'
 ACTIVE_CAMPAIGN_KEY = 'ae468bdc7308a058e8e33c610d7453196145410d7d7dff5dd251f6cbcd421eb108c02c7d'
-django_heroku.settings(locals())
+
+TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
+NOSE_ARGS = [
+    '--with-coverage',
+    '--cover-package=foo,bar',
+]

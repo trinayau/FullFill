@@ -20,7 +20,7 @@ const Profile = () => {
 
     useEffect(()=>{
         // check if url params has redirect=true
-       if(window.location.href==='http://localhost:3000/profile?redirect=true'){
+       if(window.location.href==='https://fullfill.netlify.app/profile?redirect=true'){
            setState({open: true, vertical: 'top', horizontal: 'center'})
        } else {
               setState({open: false, vertical: 'top', horizontal: 'center'})
@@ -29,7 +29,7 @@ const Profile = () => {
 
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get('http://localhost:8000/api/communities/mycommunities');
+            const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/mycommunities');
             setCommunities(response.data)
         }
         fetchData();

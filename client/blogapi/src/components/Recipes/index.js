@@ -30,8 +30,7 @@ function Recipes() {
 
   return (
     <div className="recipes-container">
-      <br />
-      <h2 className="recipes-h2">Recipe Finder</h2>
+      <h1 className="main-titles">Recipe Finder</h1>
       <p>Enter the ingredients you want, and we'll find recipes for you!</p>
       <SearchBar
         handleSubmit={handleSubmit}
