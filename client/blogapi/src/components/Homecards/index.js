@@ -136,7 +136,7 @@ food poverty in the UK.</h2>
 <br/>
 <br/>
 
-<Card className='card3'style={{ width: '100%', backgroundColor:"var(--background)" }}>
+<Card className='card3'style={{ width: '100%', backgroundColor:"var(--background)", border:"None" }}>
   <Row>
   <Col xl={12} lg={12}  >
   <Card.Body>
