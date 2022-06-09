@@ -9,7 +9,7 @@ User = get_user_model()
 class Community(models.Model):
     title = models.CharField(max_length=255, null=False, blank=False)
     description = models.TextField()
-    location = models.CharField(max_length=50, null=True, blank=True)
+    location = models.CharField(max_length=50)
     creator = models.ForeignKey(User, on_delete=models.CASCADE, blank=True, editable=False)
 
     def __str__(self) -> str:
