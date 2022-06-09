@@ -120,7 +120,7 @@ const Communities = () => {
         <div>
           <br />
           <br />
-          <h3>Make a new community:</h3>
+          {/* <h3>Make a new community:</h3> */}
           <div style={{ height: "100px" }}></div>
 
           <Tooltip
@@ -128,8 +128,9 @@ const Communities = () => {
             title="Add"
             sx={{
               position: "absolute",
-              top: 440,
-              left: { xs: "calc(50% - 170px)", md: 700 },
+              top: 70,
+              right: 10
+            //   left: { xs: "calc(50% - 170px)", md: 700 },
             }}
           >
             <Fab color="error" aria-label="add">
@@ -195,7 +196,7 @@ const Communities = () => {
                 />
                 <input type="submit" value="submit" />
 
-                <Add />
+                {/* <Add /> */}
               </form>
 
               <ButtonGroup

@@ -135,7 +135,7 @@ function Header() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "Pacifico",
+              fontFamily: "Poppins",
               fontWeight: 700,
               color: "black",
               textDecoration: "none",
