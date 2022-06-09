@@ -1,6 +1,7 @@
 /* Colour Palette */
 
 :root {
+  --background: #f9f4ef;
   --light-salmon: #f6cbc1;
   --light-orange: hsl(28, 100%, 69%);
   --olive-green: #a5bc79;

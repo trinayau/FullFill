@@ -13,6 +13,7 @@ djangorestframework-simplejwt = "*"
 requests = "*"
 django-heroku = "*"
 
+
 [dev-packages]
 
 [scripts]
