@@ -69,13 +69,14 @@ function Header() {
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
-              fontFamily: "Pacifico",
+              fontFamily: "Poppins",
               fontWeight: 700,
-              letterSpacing: ".1rem",
+              letterSpacing: "-0.02em",
               fontSize: "1.5rem",
               color: "black",
               textDecoration: "none",
             }}
+            style={{color:"black"}}
           >
             FullFill
           </Typography>
@@ -134,10 +135,13 @@ function Header() {
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "Pacifico",
+              fontFamily: "Poppins",
               fontWeight: 700,
               color: "black",
               textDecoration: "none",
+            }}
+            style={{
+              color:"black"
             }}
           >
             FullFill

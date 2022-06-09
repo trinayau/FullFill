@@ -34,9 +34,8 @@ const Map = ({ locationArray }) => {
     <>
       <GoogleMap
         mapContainerStyle={{
-          height: "110vh",
-          width: "50vw",
-          marginLeft: "120px",
+          height: "500px",
+          width: "100%"
         }}
         zoom={12}
         center={center}

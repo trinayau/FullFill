@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import ModalCard from "../ModalCard";
 import { Col, Row, Container, Card, CardGroup, Button } from "react-bootstrap";
 import "./Locator.css";
 
@@ -49,28 +48,9 @@ const Locator = () => {
 
   const renderLocations = () => {
     return locationData.map((s, i) => (
-      <li key={i} className="show-link">
-        {/* <Card sx={{ minWidth: 275 }} className="locator-card">
-          <CardContent>
-            <Typography variant="h6" component="div">
-              {s.name} Foodbank
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              {s.distance_mi} miles away from {submitValue}
-            </Typography>
-            <Typography variant="body2">
-              {s.address}
-              <br />
-              <strong>Phone number:</strong> {s.phone}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <ModalCard />
-          </CardActions>
-        </Card>
-        <br /> */}
-
-        <Card className="info-card" style={{ width: "18vw" }}>
+      <div className="col-sm mx-auto pl-5">
+      <div key={i} className="show-link mx-auto">
+        <Card className="info-card text-center justify-content-center" sx={{backgroundColor: "salmon"}}>
           <Card.Body>
             <Card.Title> {s.name} Foodbank</Card.Title>
             <Card.Subtitle className="mb-2 text-muted">
@@ -80,12 +60,14 @@ const Locator = () => {
               {s.address}
               <br />
               <strong>Phone number:</strong> {s.phone}
+              <br />
+              <strong>Email:</strong> {s.email}
             </Card.Text>
-            <ModalCard />
           </Card.Body>
         </Card>
         <br />
-      </li>
+      </div>
+    </div>
     ));
   };
 
@@ -102,41 +84,40 @@ const Locator = () => {
 
   return (
     <>
-      <h2 className="header">Find a Food Bank in your Area:</h2>
-      <br />
+      <h1 className="main-titles">Find a Food Bank in your Area:</h1>
       <p>
-        {" "}
         Food banks are grassroots, charitable organisations aimed at supporting
         people who cannot afford the essentials in life.
       </p>
       <p>You can contact your local food bank using the map below.</p>
 
-
-      <form role='locatorForm' onSubmit={handleSubmit}>
+      <form
+        role="locatorForm"
+        onSubmit={handleSubmit}
+        className="search-bar-form"
+      >
         <input
           type="text"
           onChange={handleInput}
           value={inputValue}
           placeholder="Enter a postcode, city or address to locate"
+          className="search-form-control search-input"
         ></input>
-        <button className="submitBtn" type="submit">
+        <button className="search-btn" type="submit">
           Search
         </button>
-
-        <br />
-        <br />
-        <h5>Foodbanks near {submitValue}:</h5>
-        <br />
       </form>
 
-      <Row>
-        <Col xl={7} className="locator-elements">
-          <Map locationArray={locationArray} />
-        </Col>
-        <Col xl={3} className="locations-scroll">
-          <ol>{renderLocations()}</ol>
-        </Col>
-      </Row>
+      <div className="container">
+        <div className="row justify-content-center">
+          <div className="locator-elements col-md justify-content-left">
+            <Map locationArray={locationArray} />
+          </div>
+          <div className="locations-scroll col-lg text-center justify-content-center align-items-center">
+            <div className="row">{renderLocations()}</div>
+          </div>
+        </div>
+      </div>
     </>
   );
 };

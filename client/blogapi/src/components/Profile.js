@@ -20,7 +20,7 @@ const Profile = () => {
 
     useEffect(()=>{
         // check if url params has redirect=true
-       if(window.location.href==='http://localhost:3000/profile?redirect=true'){
+       if(window.location.href==='https://fullfill.netlify.app/profile?redirect=true'){
            setState({open: true, vertical: 'top', horizontal: 'center'})
        } else {
               setState({open: false, vertical: 'top', horizontal: 'center'})

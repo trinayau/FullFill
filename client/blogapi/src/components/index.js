@@ -3,7 +3,6 @@ export { default as PostLoading } from "./PostLoading";
 export { default as Login } from "./Login";
 export { default as Register } from "./Register";
 export { default as Recipes } from "./Recipes";
-export { default as ModalCard } from "./ModalCard";
 export { default as RecipeCard } from "./RecipeCard";
 export { default as RecipeSearchBar } from "./RecipeSearchBar";
 export { default as Logout } from "./Logout";

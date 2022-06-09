@@ -62,7 +62,7 @@ const RecipeCard = ({ recipe }) => {
           </Alert>
         </Snackbar>
       <img src={strMealThumb} alt={strMeal} className="card-image" />
-      <div className="card-body">
+      <div className="card-body" style={{border:"None"}}>
         <span className="category">{strCategory} Recipe</span>
         <h6 className="recipes-h3">{strMeal}</h6>
         <a
