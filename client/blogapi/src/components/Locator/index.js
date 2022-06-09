@@ -48,6 +48,7 @@ const Locator = () => {
 
   const renderLocations = () => {
     return locationData.map((s, i) => (
+<<<<<<< HEAD
       <div className="col-sm mx-auto pl-5">
         <div key={i} className="show-link mx-auto">
           <Card
@@ -69,6 +70,25 @@ const Locator = () => {
           <br />
         </div>
       </div>
+=======
+      <li key={i}>
+        <Card className="info-card" style={{ width: "18vw" }}>
+          <Card.Body>
+            <Card.Title> {s.name} Foodbank</Card.Title>
+            <Card.Subtitle className="mb-2 text-muted">
+              {s.distance_mi} miles away from {submitValue}
+            </Card.Subtitle>
+            <Card.Text style={{ fontSize: "0.9rem" }}>
+              {s.address}
+              <br />
+              <strong>Phone number:</strong> {s.phone}
+              <strong>Phone number:</strong> {s.email}
+            </Card.Text>
+          </Card.Body>
+        </Card>
+        <br />
+      </li>
+>>>>>>> 55edd71 (Added email)
     ));
   };
 
