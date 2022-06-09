@@ -4,6 +4,8 @@ export { default as Login } from "./Login";
 export { default as Register } from "./Register";
 export { default as Recipes } from "./Recipes";
 export { default as ModalCard } from "./ModalCard";
+export { default as RecipeCard } from "./RecipeCard";
+export { default as RecipeSearchBar } from "./RecipeSearchBar";
 export { default as Logout } from "./Logout";
 export { default as Homepage } from "./Homepage";
 export { default as Locator } from "./Locator";
@@ -16,4 +18,3 @@ export { default as Profile } from "./Profile";
 export { default as Map } from "./Map";
 export { default as NotFoundPage } from "./NotFoundPage";
 export { default as Newsletter } from "./NewsletterPage";
-

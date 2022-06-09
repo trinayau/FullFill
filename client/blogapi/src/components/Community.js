@@ -103,6 +103,7 @@ const handleJoin = async(e)=>{
   }
 
   const handleComment = async(e, postId) => {
+<<<<<<< HEAD
     // const response = await axiosInstance.post('http://localhost:8000/api/posts/'+postId+'/comments/', {
     //     description: 'test'
     // });
@@ -120,11 +121,31 @@ const handleJoin = async(e)=>{
     e.preventDefault();
     const response = await axiosInstance.get('http://localhost:8000/api/communities/posts/'+postId+'/comments/');
     console.log(response.data)
+=======
+    e.preventDefault();
+    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/posts/'+postId+'/comments/', {
+        comment: newComment
+    });
+    showComment(e, postId)
+    // for alert:
+    setAlertMessage('Your comment has been added!')
+    setState({ open: true, vertical: 'top',
+    horizontal: 'center', });
+}
+// get comments
+  const showComment= async(e, postId) => {
+    e.preventDefault();
+    const response = await axiosInstance.get('https://fullfill-server.herokuapp.com/api/communities/posts/'+postId+'/comments/');
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
     setComment(response.data)
   }
 
   const handleLike = async (postId) => {
+<<<<<<< HEAD
     const response = await axiosInstance.post('http://localhost:8000/api/communities/posts/' + postId + '/likes/', {});
+=======
+    const response = await axiosInstance.post('https://fullfill-server.herokuapp.com/api/communities/posts/' + postId + '/likes/', {});
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
     setPosts(posts.map(post => {
         if (post.id === postId) {
             return {
@@ -139,9 +160,9 @@ const handleJoin = async(e)=>{
 
 
     return (
-      <>
+      <div className="container d-flex text-center flex-column">
         {isMember ? (
-          "Welcome member"
+          <Typography variant="h6">Welcome member!</Typography>
         ) : (
           <Button onClick={handleJoin}>Join Community</Button>
         )}
@@ -159,17 +180,31 @@ const handleJoin = async(e)=>{
         </Snackbar>
         <br/>
         {/* if member is true, user can post */}
-        {isMember && (
+        
+
+        {communityTitle && communityTitle ? (
+          <div >
+            <h1>{communityTitle}</h1>
+            <h2>{communityDescription}</h2>
+            {isMember && (
+          <div className="container" style={{maxWidth:'500px', alignSelf:'center', justifyContent:'center'}}>
           <form onSubmit={handleSubmit}>
           <FormControl>
+<<<<<<< HEAD
           <FormLabel>Create a post</FormLabel>
             <Input
+=======
+          <FormLabel sx={{fontSize:'1.2rem'}}>Create a post</FormLabel>
+            <TextField
+            variant="outlined"
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
               type="text"
               name="title"
               placeholder="Title"
               onChange={(e) => {
                 setTitle(e.target.value);
               }}
+              required
             />
             <TextField
             variant="outlined"
@@ -179,11 +214,14 @@ const handleJoin = async(e)=>{
               onChange={(e) => {
                 setDescription(e.target.value);
               }}
+              required
             />
             <Button type="submit" variant="contained">Post</Button>
           </FormControl>
           </form>
+          </div>
         )}
+<<<<<<< HEAD
 
         {communityTitle && communityTitle ? (
           <div >
@@ -192,6 +230,10 @@ const handleJoin = async(e)=>{
 
             <h3 className="my-2">Posts</h3>
   
+=======
+            <Typography variant="h4" className="text-center">All Posts</Typography>
+            <div className="d-flex flex-column justify-content-center align-items-center">
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
             {posts.length > 0
               ? posts.slice(0).reverse().map((p, i) => {
                   return (
@@ -209,7 +251,7 @@ const handleJoin = async(e)=>{
                         <Avatar
                           alt={p.creator.user_name}
                           src="/static/images/avatar/2.jpg"
-                          sx={{ backgroundColor: getRandomColour() }}
+                          sx={{ backgroundColor: 'pink'}}
                         />
                         <Typography variant="h6" noWrap sx={{ ml: 2, textAlign:'left' }} >
                           {p.creator.user_name}
@@ -237,7 +279,12 @@ const handleJoin = async(e)=>{
             </form>          
         </CardActions>
           <div style={{display: 'block'}}>
+<<<<<<< HEAD
           {comment.length > 0 && comment.map((c, i) => {
+=======
+          {comment.length > 0 && comment.slice(0).reverse().map((c, i) => {
+            if(c.post === p.id){
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
             return (
               <div key={i}>
                 <Card
@@ -246,6 +293,7 @@ const handleJoin = async(e)=>{
                   sx={{
                     m: "15px",
                     p: "15px",
+<<<<<<< HEAD
                     minWidth:'325px',
                     maxWidth:'500px'
                   }}
@@ -254,6 +302,15 @@ const handleJoin = async(e)=>{
                     <Avatar
                       src="/static/images/avatar/2.jpg"
                       sx={{ backgroundColor: getRandomColour() }}
+=======
+                  }}
+                >
+                  <IconButton style={{textAlign:'left'}} onClick={e=> handleClick(c.username)}>
+                    <Avatar
+                      alt={c.username}
+                      src="/static/images/avatar/2.jpg"
+                      sx={{ backgroundColor: 'green' }}
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
                     />
                     <Typography variant="h6" noWrap sx={{ ml: 2, textAlign:'left' }} >
                       {c.username}
@@ -261,11 +318,19 @@ const handleJoin = async(e)=>{
                    
                   </IconButton>
                   <Chip label={"Commented "+dayjs(c.created_at).format('DD/MM/YYYY')} sx={{ alignItem:"right", mr:0}}/>
+<<<<<<< HEAD
                   <Typography variant="h6" style={{textAlign:"left"}}>{c.body}</Typography>
+=======
+                  <p style={{textAlign:"left"}}>{c.body}</p>
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
                 </Card>
               </div>
             )
           }
+<<<<<<< HEAD
+=======
+          }
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
           )}
 
           </div>
@@ -277,11 +342,16 @@ const handleJoin = async(e)=>{
                 
               : "No posts"}
               
+<<<<<<< HEAD
+=======
+          </div>
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
           </div>
         ) : (
           "nothing to see here"
         )}
-      </>
+       
+      </div>
     );
 }
  

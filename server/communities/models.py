@@ -46,3 +46,16 @@ class Comment(models.Model):
 
     def __str__(self):
         return '%s - %s' % (self.name.user_name, self.post.title)
+<<<<<<< HEAD
+=======
+
+class FavRecipe(models.Model):
+    recipe_id = models.CharField(max_length=20, null=False,blank=False, unique=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=False, blank=False, editable=False)
+    img = models.CharField(max_length=100, editable=False)
+    title = models.CharField(max_length=100, editable=False)
+    category = models.CharField(max_length=100, editable=False)
+
+    def __str__(self):
+        return f'{self.recipe_id}'
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c

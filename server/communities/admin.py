@@ -36,3 +36,13 @@ class CommentAdmin(admin.ModelAdmin):
         obj.username = request.user.user_name
         super(CommentAdmin, self).save_model(request, obj, form, change)
     list_display = ("id", "name", "post")
+<<<<<<< HEAD
+=======
+
+@admin.register(models.FavRecipe)
+class RecipeAdmin(admin.ModelAdmin):
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super(RecipeAdmin, self).save_model(request, obj, form, change)
+    list_display = ("id", "user", "recipe_id")
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c

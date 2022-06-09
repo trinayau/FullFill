@@ -7,8 +7,13 @@ Project FullFill
 ## Description
 A fullstack project that aims to serve those facing food poverty by providing a one-stop-shop for both corporate and public volunteers to organise food donations and outreach, as well as for those in need to find local food banks.
 
+<<<<<<< HEAD
 Client deployed via Netlify: [http://localhost:8000/](https://fullfill.netlify.app/)  
 Server deployed via Heroku: http://localhost:8000/  
+=======
+Client deployed via Netlify: https://fullfill.netlify.app/  
+Server deployed via Heroku: https://fullfill-server.herokuapp.com/  
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
 
 ## Team Organisation
 

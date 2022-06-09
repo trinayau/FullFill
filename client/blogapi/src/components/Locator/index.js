@@ -111,7 +111,12 @@ const Locator = () => {
       </p>
       <p>You can contact your local food bank using the map below.</p>
 
+<<<<<<< HEAD
       <form onSubmit={handleSubmit}>
+=======
+
+      <form role='locatorForm' onSubmit={handleSubmit}>
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
         <input
           type="text"
           onChange={handleInput}
@@ -119,8 +124,14 @@ const Locator = () => {
           placeholder="Enter a postcode, city or address to locate"
         ></input>
         <button className="submitBtn" type="submit">
+<<<<<<< HEAD
           Sumbit
         </button>
+=======
+          Search
+        </button>
+
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
         <br />
         <br />
         <h5>Foodbanks near {submitValue}:</h5>

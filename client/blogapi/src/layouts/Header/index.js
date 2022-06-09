@@ -25,7 +25,7 @@ function Header() {
 
   const navigate = useNavigate();
 
-  let {user} = useContext(AuthContext)
+  let { user } = useContext(AuthContext);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -48,6 +48,7 @@ function Header() {
     navigate(link);
   };
 
+  const pages = ['community', 'recipe', 'profile'];
 
   return (
     <AppBar elevation={0} position="static" sx={{ backgroundColor: "white", height:"150px"}}>
@@ -64,7 +65,7 @@ function Header() {
             variant="h6"
             noWrap
             component="a"
-            href="/"
+            onClick={() => handleLink("/")}
             sx={{
               mr: 2,
               display: { xs: "none", md: "flex" },
@@ -88,7 +89,7 @@ function Header() {
               onClick={handleOpenNavMenu}
               color="inherit"
             >
-              <MenuIcon />
+              <MenuIcon style={{color: 'black'}}/>
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -108,11 +109,18 @@ function Header() {
                 display: { xs: "block", md: "none" },
               }}
             >
-              {/* {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key='Locator' onClick={()=>{handleLink('/locator')}}>
+                  <Typography textAlign="center">Locator</Typography>
                 </MenuItem>
-              ))} */}
+                <MenuItem key='Donation' onClick={()=>{handleLink('/donation')}}>
+                  <Typography textAlign="center">Donation</Typography>
+                </MenuItem>
+                <MenuItem key='Recipes' onClick={()=>{handleLink('/recipes')}}>
+                  <Typography textAlign="center">Recipes</Typography>
+                </MenuItem>
+                <MenuItem key='Community' onClick={()=>{handleLink('/communities')}}>
+                  <Typography textAlign="center">Community</Typography>
+                </MenuItem>
             </Menu>
           </Box>
           {/* Only displays for mobile */}
@@ -121,14 +129,13 @@ function Header() {
             variant="h5"
             noWrap
             component="a"
-            href=""
+            href="/"
             sx={{
               mr: 2,
               display: { xs: "flex", md: "none" },
               flexGrow: 1,
               fontFamily: "Pacifico",
               fontWeight: 700,
-              letterSpacing: ".3rem",
               color: "black",
               textDecoration: "none",
             }}
@@ -163,79 +170,100 @@ function Header() {
             </Button>
             <Button
               onClick={(e) => {
+                handleLink("/recipes");
+              }}
+              sx={{ my: 2, color: "black", display: "block" }}
+            >
+              Recipes
+            </Button>
+            <Button
+              onClick={(e) => {
                 handleLink("/communities");
               }}
               sx={{ my: 2, color: "black", display: "block" }}
             >
               Community
             </Button>
-            {user? 
-            <Button
-              onClick={(e) => {
-                handleLink("/logout");
-              }}
-              sx={{ my: 2, color: "black", display: "block" }}
-            >
-              Logout
-            </Button>
-            :
-            <>
-            <Button
-              onClick={(e) => {
-                handleLink("/Login");
-              }}
-              sx={{ my: 2, color: "black", display: "block" }}
-            >
-              Login
-            </Button>
-            <Button
+            {user ? (
+              <Button
                 onClick={(e) => {
-                  handleLink("/register");
+                  handleLink("/logout");
                 }}
                 sx={{ my: 2, color: "black", display: "block" }}
               >
-                Register
+                Logout
               </Button>
+            ) : (
+              <>
+                <Button
+                  onClick={(e) => {
+                    handleLink("/Login");
+                  }}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  Login
+                </Button>
+                <Button
+                  onClick={(e) => {
+                    handleLink("/register");
+                  }}
+                  sx={{ my: 2, color: "black", display: "block" }}
+                >
+                  Register
+                </Button>
               </>
-            }
-            <nav>
-              
-              
-            </nav>
+            )}
+            <nav></nav>
           </Box>
-          {user?
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt={user?user.username:'User'} src="/static/images/avatar/2.jpg" sx={{backgroundColor:"#adc178"}}/>
-                <Typography variant="h6" noWrap sx={{ml: 2}}>Hi {user? user.username:null}</Typography>
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-            >
-            <MenuItem key="Profile" onClick={(e)=>{handleLink('/profile')}}>
+          {user ? (
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Open settings">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar
+                    alt={user ? user.username : "User"}
+                    src="/static/images/avatar/2.jpg"
+                    sx={{ backgroundColor: "#adc178" }}
+                  />
+                  <Typography variant="h6" noWrap sx={{ ml: 2 }}>
+                    Hi {user ? user.username : null}
+                  </Typography>
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                id="menu-appbar"
+                anchorEl={anchorElUser}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                keepMounted
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+              >
+                <MenuItem
+                  key="Profile"
+                  onClick={(e) => {
+                    handleLink("/profile");
+                  }}
+                >
                   <Typography textAlign="center">Profile</Typography>
                 </MenuItem>
-                <MenuItem key="Logout" onClick={(e)=>{handleLink('/logout')}}>
+                <MenuItem
+                  key="Logout"
+                  onClick={(e) => {
+                    handleLink("/logout");
+                  }}
+                >
                   <Typography textAlign="center">Logout</Typography>
                 </MenuItem>
-            </Menu>
-          </Box>
-        :null}
+              </Menu>
+            </Box>
+          ) : null}
         </Toolbar>
       </Container>
     </AppBar>

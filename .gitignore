@@ -91,5 +91,8 @@ docs/_build/
 
 # Local Netlify folder
 .netlify
+<<<<<<< HEAD
 
 Pipfile.lock
+=======
+>>>>>>> 8e9826362074fbbcceca0924f85505ac7bf3eb9c
