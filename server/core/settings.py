@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
     'newsletter',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -192,3 +193,7 @@ SIMPLE_JWT = {
 ACTIVE_CAMPAIGN_URL = 'https://kellyalfie6.api-us1.com'
 ACTIVE_CAMPAIGN_KEY = 'ae468bdc7308a058e8e33c610d7453196145410d7d7dff5dd251f6cbcd421eb108c02c7d'
 django_heroku.settings(locals())
+
+GRAPH_MODELS = {
+  'app_labels': ["communities", 'users'],
+}
