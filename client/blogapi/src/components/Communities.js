@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import axiosInstance from "../utils/axios";
 import AuthContext from "../context/AuthContext";
-import Add from "./Add";
+import logo from "./Images/saladyellow.png";
 
 import {
   Card,
@@ -94,9 +94,10 @@ const Communities = () => {
                 key={i}
                 style={{
                   margin: "15px",
-                  padding: "20px",
+                  padding: "30px",
                   width: "70%",
                   margin: "0px auto",
+                  backgroundColor: "var(--background",
                 }}
                 id={c.id}
               >
@@ -130,8 +131,8 @@ const Communities = () => {
             sx={{
               position: "absolute",
               top: 70,
-              right: 10
-            //   left: { xs: "calc(50% - 170px)", md: 700 },
+              right: 10,
+              //   left: { xs: "calc(50% - 170px)", md: 700 },
             }}
           >
             <Fab color="error" aria-label="add">
@@ -145,9 +146,9 @@ const Communities = () => {
             aria-describedby="modal-modal-description"
           >
             <Box
-              width={400}
-              height={280}
-              bgcolor={"background.default"}
+              width={450}
+              height={460}
+              bgcolor={"#FFE8BA"}
               color={"text.primary"}
               p={3}
               borderRadius={5}
@@ -159,57 +160,74 @@ const Communities = () => {
               ></Typography>
               <UserBox>
                 <Avatar
-                  src="https://images.pexels.com/photos/846741/pexels-photo-846741.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                  sx={{ width: 30, height: 30 }}
+                  src={logo}
+                  sx={{
+                    width: 80,
+                    height: 80,
+                    margin: "0 auto",
+                  }}
                 />
-                <Typography fontWeight={500} variant="span">
-                  Make A New Community
-                </Typography>
+                <br />
               </UserBox>
 
               <form onSubmit={handleSubmit}>
+                <h4>Make A New Community</h4>
+                <br />
                 <input
                   type="text"
                   name="title"
                   placeholder="Name"
-
-                  //   onChange={(e) => {
-                  //     setTitle(e.target.value);
-                  //   }}
+                  style={{
+                    width: "300px",
+                    height: "40px",
+                    border: "none",
+                    borderRadius: "7px",
+                    backgroundColor: "#F9F9F9",
+                  }}
                 />
+                <br />
+                <br />
                 <input
                   type="text"
                   name="description"
                   placeholder="Description"
-
-                  //   onChange={(e) => {
-                  //     setDescription(e.target.value);
-                  //   }}
+                  style={{
+                    width: "300px",
+                    height: "80px",
+                    border: "none",
+                    borderRadius: "7px",
+                    backgroundColor: "#F9F9F9",
+                  }}
                 />
+                <br />
+                <br />
                 <input
                   type="text"
                   name="location"
                   placeholder="Location"
-
-                  //   onChange={(e) => {
-                  //     setLocation(e.target.value);
-                  //   }}
-                />
-                <input type="submit" value="submit" />
-
-                {/* <Add /> */}
+                  style={{
+                    width: "300px",
+                    height: "40px",
+                    border: "none",
+                    borderRadius: "7px",
+                    backgroundColor: "#F9F9F9",
+                  }}
+                />{" "}
+                <br />
+                <ButtonGroup
+                  sx={{ marginTop: "10px", marginBottom: "10px" }}
+                  variant="contained"
+                  aria-label="outlined button group"
+                >
+                  <Button
+                    sx={{ width: "300px", backgroundColor: "#EF645E" }}
+                    type="submit"
+                    value="submit"
+                  >
+                    Create
+                  </Button>
+                </ButtonGroup>
               </form>
-
-              {/* <ButtonGroup
-                fullWidth
-                variant="contained"
-                aria-label="outlined primary button group"
-              >
-                <Button>Post</Button>
-                <Button sx={{ width: "100px" }}>
-                  <DateRange />
-                </Button>
-              </ButtonGroup> */}
             </Box>
           </StyledModal>
         </div>
