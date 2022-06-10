@@ -1,10 +1,13 @@
 import { Favorite, FavoriteBorder } from "@mui/icons-material";
 import { Checkbox, IconButton, Snackbar } from "@mui/material";
-import React from "react";
+import React, { useContext } from "react";
 import { Alert } from "react-bootstrap";
 import axiosInstance from "../../utils/axios";
+import AuthContext from "../../context/AuthContext";
 
 const RecipeCard = ({ recipe }) => {
+
+  const { user } = useContext(AuthContext);
 
   const { idMeal, strMeal, strCategory, strMealThumb } = recipe;
 
@@ -72,9 +75,10 @@ const RecipeCard = ({ recipe }) => {
         >
           Ingredients
         </a>
-        <IconButton aria-label="add to favorites" onClick={(e)=>handleFavorite(e)}>
+        {user ? <IconButton aria-label="add to favorites" onClick={(e)=>handleFavorite(e)}>
           <Checkbox checked={check}icon={<FavoriteBorder />} checkedIcon={<Favorite sx={{color:"red"}} />} />
-          </IconButton>
+          </IconButton> : null}
+      
       </div>
     </div>
   );

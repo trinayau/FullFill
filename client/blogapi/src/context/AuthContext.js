@@ -4,8 +4,12 @@ import jwt_decode from "jwt-decode";
 const AuthContext = createContext({});
 
 export const AuthProvider = ({ children }) => {
-    const [authTokens, setAuthTokens] = useState(null);
-    let [user, setUser] = useState(()=> localStorage.getItem('access_token') ? jwt_decode(localStorage.getItem('access_token')) : null)
+    let [user, setUser] = useState(() =>
+      localStorage.getItem("access_token")
+        ? jwt_decode(localStorage.getItem("access_token"))
+        : null
+    );
+    
     let contextData = {
         user:user,
         setUser:setUser,

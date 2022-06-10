@@ -56,6 +56,7 @@ const Communities = () => {
       description: data.get("description"),
       location: data.get("location"),
     };
+    console.log(communitiesData)
 
     const response = await axiosInstance.post(
       "https://fullfill-server.herokuapp.com/api/communities/",
