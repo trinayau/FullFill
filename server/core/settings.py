@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
     'newsletter',
     'django_nose',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -198,3 +199,8 @@ NOSE_ARGS = [
     '--with-coverage',
     '--cover-package=foo,bar',
 ]
+django_heroku.settings(locals())
+
+GRAPH_MODELS = {
+  'app_labels': ["communities", 'users'],
+}

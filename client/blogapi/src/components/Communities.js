@@ -56,6 +56,7 @@ const Communities = () => {
       description: data.get("description"),
       location: data.get("location"),
     };
+    console.log(communitiesData)
 
     const response = await axiosInstance.post(
       "https://fullfill-server.herokuapp.com/api/communities/",
@@ -187,7 +188,7 @@ const Communities = () => {
                 />
                 <input
                   type="text"
-                  name="Location"
+                  name="location"
                   placeholder="Location"
 
                   //   onChange={(e) => {
@@ -199,7 +200,7 @@ const Communities = () => {
                 {/* <Add /> */}
               </form>
 
-              <ButtonGroup
+              {/* <ButtonGroup
                 fullWidth
                 variant="contained"
                 aria-label="outlined primary button group"
@@ -208,7 +209,7 @@ const Communities = () => {
                 <Button sx={{ width: "100px" }}>
                   <DateRange />
                 </Button>
-              </ButtonGroup>
+              </ButtonGroup> */}
             </Box>
           </StyledModal>
         </div>
