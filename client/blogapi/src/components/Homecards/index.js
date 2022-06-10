@@ -95,10 +95,10 @@ Volunteer</strong></Card.Title>
    </div>
 
 
-<div className="Container-card3" >
-        <Row >
+<div className="Container-card3" style={{backgroundColor:"#f9ebcf"}}>
+        <Row>
           <Col xl={6}><div className="container-card3-1">
-          <img src={nav} 
+          <img  src={nav} 
            alt="image of a person looking at navigations"/>
           </div></Col>
           <Col xl={6}><div className="container-card3-2">
@@ -110,25 +110,25 @@ Can you help us?</h2>
       </div>
 <br/>
 <br/>
-<div className="Container-card3">
+<div className="Container-card3" style={{paddingTop:"100px"}}>
     <br/>
     <br/>
         <Row >
-            <br/>
-            <br/>
-            <br/>
+            
+            
 
-          <Col xl={8}><div className="container-card4-1">
-              <h5>Our mission:</h5>
+          <Col xl={8}><div className="container-card4-1" >
+              <h5 style={{paddingLeft:"-120%",fontSize:"15px"}} >Our mission:</h5>
               <br/>
-          <h2>Connecting people in communities <br/>
+              <br/>
+          <h2 style={{fontSize:"40px",textAlign:"Left",paddingBottom:"100px"}}>Connecting people in communities <br/>
 through technology to reduce 
 <br/>
 food poverty in the UK.</h2>
 </div>   
             </Col>
           <Col xl={4}><div className="container-card4-2">
-          <img src={salad} style={{backgroundColor:"none", borderRadius:"15px", height:"150px", alignSelf:"left", paddingRight:"100px"}} className="text-left" alt="fruit bowl"/>
+          <img src={salad} style={{backgroundColor:"none", borderRadius:"15px", height:"270px" ,paddingTop:"30px"}} className="text-left" alt="fruit bowl"/>
           </div></Col>
         </Row>
       </div>
@@ -136,18 +136,15 @@ food poverty in the UK.</h2>
 <br/>
 <br/>
 
-<<<<<<< HEAD
-<Card className='card3'style={{ width: '100%', backgroundColor:"var(--background)" }}>  
-=======
-<Card className='card3'style={{ width: '100%', backgroundColor:"var(--background)", border:"None" }}>
->>>>>>> a5d386dc9be460168e7c467e29f9d19cff8ef621
+
+<Card className='card3'style={{ width: '100%', backgroundColor:'var(--light-salmon)', border:"None",padding:"inline-style", margin:0, paddingTop:"40px" }}>
   <Row>
-  <Col xl={12} lg={12}  >
-  <Card.Body>
+  <Col xl={12} lg={12}  style={{padding:0}}>
+  <Card.Body style={{ margin:0}}>
     <Card.Text>
-    <h1>Are you a corporation<br/> who wants to donate surplus food?</h1>
+    <h1 style={{paddingTop:"-50%"}}>Are you a corporation<br/> who wants to donate surplus food?</h1>
     </Card.Text>
-    <Button >Join the Corporate Community</Button>
+    <Button style={{textAlign:"center"}}>Join the Corporate Community</Button>
   </Card.Body>
   </Col>
   </Row>
