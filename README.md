@@ -9,13 +9,16 @@ A fullstack project that aims to serve those facing food poverty by providing a 
 
 Client deployed via Netlify: https://fullfill.netlify.app/  
 Server deployed via Heroku: https://fullfill-server.herokuapp.com/  
+Presentation available on Canva: https://www.canva.com/design/DAFC0sGhcT0/6c8fexwYvWOE87kaMqSOMQ/view  
+Initial pitch available on GitHub Gist: https://gist.github.com/trinayau/402e96fd8e2107d91eb7019cbec829ad  
+Figma planning: https://www.figma.com/file/58AsRQYoL2DYC6NwZF71tl/Gebru-2?node-id=0%3A1  
 
 ## Team Organisation
 
 | Team Member     | Role |
 |----------|------|
 | [Alfie Kelly](https://github.com/Scralfie)    | Back End Development and Research    |
-| [Amarachi Umeloh](https://github.com/umeloha) | Front End Development and Design      |
+| [Amarachi Umeloh](https://github.com/umeloha) | Front End Development and Wireframing      |
 | [Doreen Kamushinda](https://github.com/doreenkam)   | Front End Development and Design      |
 | [Thayaan Srisathialingam](https://github.com/THAYAANS)  | Front End Development and Testing    |
 | [Trina Yau](https://github.com/trinayau)    | Front/Back End Development and Planning      |
