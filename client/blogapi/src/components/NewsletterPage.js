@@ -96,7 +96,7 @@ const Newsletter = () => {
                                 required />
                             <label className='form-check-label'
                                 style={{ marginLeft: '6px' }}
-                                htmlFor='agree'> I agree to terms and conditions and conditions
+                                htmlFor='agree'> I agree to terms and conditions
                             </label>
                         </div> <br></br>
                         {
