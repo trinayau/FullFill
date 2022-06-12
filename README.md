@@ -18,11 +18,11 @@ Wireframes and planning available on [Figma](https://www.figma.com/file/58AsRQYo
 
 | Team Member     | Role |
 |----------|------|
-| [Alfie Kelly](https://github.com/Scralfie)    | Back End Development and Research    |
+| [Alfie Kelly](https://github.com/Scralfie)    | Back End Development and Testing    |
 | [Amarachi Umeloh](https://github.com/umeloha) | Front End Development and Wireframing      |
 | [Doreen Kamushinda](https://github.com/doreenkam)   | Front End Development and Design      |
 | [Thayaan Srisathialingam](https://github.com/THAYAANS)  | Front End Development and Testing    |
-| [Trina Yau](https://github.com/trinayau)    | Front/Back End Development and Planning      |
+| [Trina Yau](https://github.com/trinayau)    | Front/Back End Development and Project Manager      |
 
 
 ## Installation and Usage
