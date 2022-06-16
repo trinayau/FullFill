@@ -4,7 +4,7 @@ const baseURL = 'https://fullfill-server.herokuapp.com/api/';
 
 const axiosInstance = axios.create({
     baseURL: baseURL,
-    timeout: 5000,
+    timeout: 9000,
     headers: {
         Authorization: localStorage.getItem('access_token')
            ? 'JWT ' + localStorage.getItem('access_token')
@@ -33,7 +33,8 @@ axiosInstance.interceptors.response.use(
 			alert(
 				'A server/network error occurred. ' +
 					'Looks like CORS might be the problem. ' +
-					'Sorry about this - we will get it fixed shortly.'
+					'Sorry about this - we will get it fixed shortly.' +
+					'Please try refreshing the page, as Heroku server takes time to load initially.'
 			);
 			return Promise.reject(error);
 		}
