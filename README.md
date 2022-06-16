@@ -5,20 +5,24 @@
 Project FullFill
 
 ## Description
-A fullstack project that aims to serve those facing food poverty by providing a one-stop-shop for both corporate and public volunteers to organise food donations and outreach, as well as for those in need to find local food banks.
+FullFill is a fullstack project that aims to serve those facing food poverty by providing a one-stop-shop for both corporate and public volunteers to organise food donations and outreach.
 
-Client deployed via Netlify: https://fullfill.netlify.app/  
-Server deployed via Heroku: https://fullfill-server.herokuapp.com/  
+## Links
+Client deployed via [Netlify](https://fullfill.netlify.app/)  
+Server deployed via [Heroku](https://fullfill-server.herokuapp.com/)  
+Final presentation available on [Canva](https://www.canva.com/design/DAFC0sGhcT0/6c8fexwYvWOE87kaMqSOMQ/view)  
+Initial pitch and MVP available on [Gist](https://gist.github.com/trinayau/402e96fd8e2107d91eb7019cbec829ad)  
+Wireframes and planning available on [Figma](https://www.figma.com/file/58AsRQYoL2DYC6NwZF71tl/Gebru-2?node-id=0%3A1)  
 
 ## Team Organisation
 
 | Team Member     | Role |
 |----------|------|
-| [Alfie Kelly](https://github.com/Scralfie)    | Back End Development and Research    |
-| [Amarachi Umeloh](https://github.com/umeloha) | Front End Development and Design      |
+| [Alfie Kelly](https://github.com/Scralfie)    | Back End Development and Testing    |
+| [Amarachi Umeloh](https://github.com/umeloha) | Front End Development and Wireframing      |
 | [Doreen Kamushinda](https://github.com/doreenkam)   | Front End Development and Design      |
 | [Thayaan Srisathialingam](https://github.com/THAYAANS)  | Front End Development and Testing    |
-| [Trina Yau](https://github.com/trinayau)    | Front/Back End Development and Planning      |
+| [Trina Yau](https://github.com/trinayau)    | Front/Back End Development and Project Manager      |
 
 
 ## Installation and Usage
@@ -64,7 +68,7 @@ A .env file is required for the client to run perfectly:
 ## Technologies
 | Purpose   | Technology                                                    |
 |-----------|---------------------------------------------------------------|
-| Front End | React designed using MaterialUI library                       |
+| Front End | React using MaterialUI library                       |
 | Back End  | Django using Django Rest Framework                            |
-| APIs      | Give Food API, Google Maps API, Spoonacular API for databases |
-| Database  | Heroku PostgreSQL DB                                          |
+| APIs      | Give Food API, React Google Maps API, The Meal DB API |
+| Database  | Development: Django default SQLite3, Deployed: Heroku PostgreSQL DB                                          |
