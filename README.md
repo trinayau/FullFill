@@ -38,8 +38,7 @@ Server:
 2. Run `pipenv shell` to enter virtual enviroment
 3. Run `pipenv install` to install all dependencies
 4. Run `python manage.py makemigrations to start db
-5. Run `python manage.py migrate` to migrate changes![screencapture-fullfill-netlify-app-profile-2022-10-20-11_23_26](https://user-images.githubusercontent.com/92634994/196923948-8f966e14-e300-4801-9885-e0706501b59a.png)
-
+5. Run `python manage.py migrate` to migrate changes!
 6. Run `python manage.py runserver` to start the server
 
 A .env file is required for the client to run perfectly: 
@@ -81,3 +80,4 @@ A .env file is required for the client to run perfectly:
 ![screencapture-fullfill-netlify-app-communities-2022-10-20-10_06_58](https://user-images.githubusercontent.com/92634994/196923739-292a3f09-3678-4fc0-9513-bcc51c1cf010.png)
 ![screencapture-fullfill-netlify-app-communities-21-2022-10-20-10_07_33](https://user-images.githubusercontent.com/92634994/196923749-7f18c6c4-aad5-4a80-919c-6341ebe9a6e0.png)
 ![screencapture-fullfill-netlify-app-profile-2022-10-20-11_23_26](https://user-images.githubusercontent.com/92634994/196923975-21a49381-875f-4fd5-9efb-c7814c9b43ee.png)
+![screencapture-fullfill-netlify-app-profile-2022-10-20-11_23_26](https://user-images.githubusercontent.com/92634994/196923948-8f966e14-e300-4801-9885-e0706501b59a.png)
