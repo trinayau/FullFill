@@ -43,7 +43,7 @@ const Newsletter = () => {
             setLoading(true);
             try {
                 await axios.post(
-                    'https://fullfill-server.herokuapp.com/api/newsletter/signup/',
+                    'https://fullfill-api.onrender.com/api/newsletter/signup/',
                     body,
                     config
                 );

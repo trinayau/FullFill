@@ -70,7 +70,7 @@ const Community = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axiosInstance.get(
-        `https://fullfill-server.herokuapp.com/api/communities/${id}/memberships/`
+        `https://fullfill-api.onrender.com/api/communities/${id}/memberships/`
       );
       if (response.data.length > 0) {
         setIsMember(true);
@@ -83,7 +83,7 @@ const Community = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axiosInstance.get(
-        "https://fullfill-server.herokuapp.com/api/communities/" + id
+        "https://fullfill-api.onrender.com/api/communities/" + id
       );
       setCommunityTitle(response.data.title);
       setCommunityDescription(response.data.description);
@@ -95,7 +95,7 @@ const Community = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axiosInstance.get(
-        "https://fullfill-server.herokuapp.com/api/communities/" +
+        "https://fullfill-api.onrender.com/api/communities/" +
           id +
           "/posts/"
       );
@@ -109,7 +109,7 @@ const Community = () => {
     e.preventDefault();
 
     const response = await axiosInstance.post(
-      "https://fullfill-server.herokuapp.com/api/communities/posts/",
+      "https://fullfill-api.onrender.com/api/communities/posts/",
       {
         title: title,
         description: description,
@@ -126,7 +126,7 @@ const Community = () => {
   const handleJoin = async (e) => {
     e.preventDefault();
     const response = await axiosInstance.post(
-      "https://fullfill-server.herokuapp.com/api/communities/" +
+      "https://fullfill-api.onrender.com/api/communities/" +
         id +
         "/memberships/",
       {}
@@ -150,7 +150,7 @@ const Community = () => {
   const handleComment = async (e, postId) => {
     e.preventDefault();
     const response = await axiosInstance.post(
-      "https://fullfill-server.herokuapp.com/api/communities/posts/" +
+      "https://fullfill-api.onrender.com/api/communities/posts/" +
         postId +
         "/comments/",
       {
@@ -166,7 +166,7 @@ const Community = () => {
   const showComment = async (e, postId) => {
     e.preventDefault();
     const response = await axiosInstance.get(
-      "https://fullfill-server.herokuapp.com/api/communities/posts/" +
+      "https://fullfill-api.onrender.com/api/communities/posts/" +
         postId +
         "/comments/"
     );
@@ -175,7 +175,7 @@ const Community = () => {
 
   const handleLike = async (postId) => {
     const response = await axiosInstance.post(
-      "https://fullfill-server.herokuapp.com/api/communities/posts/" +
+      "https://fullfill-api.onrender.com/api/communities/posts/" +
         postId +
         "/likes/",
       {}

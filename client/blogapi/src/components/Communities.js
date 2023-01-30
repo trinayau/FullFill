@@ -41,7 +41,7 @@ const Communities = () => {
   useEffect(() => {
     async function fetchData() {
       const response = await axiosInstance.get(
-        "https://fullfill-server.herokuapp.com/api/communities/"
+        "https://fullfill-api.onrender.com/api/communities/"
       );
       setCommunities(response.data);
     }
@@ -59,7 +59,7 @@ const Communities = () => {
     console.log(communitiesData)
 
     const response = await axiosInstance.post(
-      "https://fullfill-server.herokuapp.com/api/communities/",
+      "https://fullfill-api.onrender.com/api/communities/",
       communitiesData
     );
     console.log(response.data);

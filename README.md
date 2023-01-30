@@ -9,7 +9,7 @@ FullFill is a fullstack project that aims to serve those facing food poverty by 
 
 ## Links
 Client deployed via [Netlify](https://fullfill.netlify.app/)  
-Server deployed via [Heroku](https://fullfill-server.herokuapp.com/)  
+Server deployed via [Heroku](https://fullfill-api.onrender.com/)  
 Final presentation available on [Canva](https://www.canva.com/design/DAFC0sGhcT0/6c8fexwYvWOE87kaMqSOMQ/view)  
 Initial pitch and MVP available on [Gist](https://gist.github.com/trinayau/402e96fd8e2107d91eb7019cbec829ad)  
 Wireframes and planning available on [Figma](https://www.figma.com/file/58AsRQYoL2DYC6NwZF71tl/Gebru-2?node-id=0%3A1)  

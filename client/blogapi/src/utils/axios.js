@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const baseURL = 'https://fullfill-server.herokuapp.com/api/';
+const baseURL = 'https://fullfill-api.onrender.com/api/';
 
 const axiosInstance = axios.create({
     baseURL: baseURL,

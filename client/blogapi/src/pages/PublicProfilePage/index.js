@@ -12,11 +12,11 @@ const PublicProfilePage = () => {
 // fetch user's details
     useEffect(() => {
         async function fetchData() {
-            const response = await axiosInstance.get(`https://fullfill-server.herokuapp.com/api/user/checkuserid/${username}/`);
+            const response = await axiosInstance.get(`https://fullfill-api.onrender.com/api/user/checkuserid/${username}/`);
             const userInfo = response.data
             console.log(userInfo)
             setUser(response.data)
-            const allCommunities = await axiosInstance.get(`https://fullfill-server.herokuapp.com/api/communities/usermemberships/${userInfo[0].id}/`);
+            const allCommunities = await axiosInstance.get(`https://fullfill-api.onrender.com/api/communities/usermemberships/${userInfo[0].id}/`);
             setCommunities(allCommunities.data)
                 }
         fetchData();
