@@ -11,10 +11,13 @@ pytest = "*"
 django-cors-headers = "*"
 djangorestframework-simplejwt = "*"
 requests = "*"
-django-heroku = "*"
 django-extensions = "*"
 pyparsing = "*"
 pydot = "*"
+django-nose = "*"
+dj-database-url = "*"
+gunicorn = "*"
+psycopg2 = "*"
 
 [dev-packages]
 
